@@ -1,0 +1,1696 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IMOBI - Página do Administrador</title>
+
+    <style>
+
+        /* =========================
+           CONFIGURAÇÕES GERAIS
+        ========================= */
+
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --roxo-escuro: #20113e;
+            --roxo: #35166a;
+            --roxo-claro: #612ca4;
+            --lilas: #a99bc9;
+            --fundo: #f8f8f9;
+            --fundo-claro: #f5f2fb;
+            --texto: #333238;
+            --texto-cinza: #727078;
+            --borda: #e5e3e8;
+            --verde: #00b84a;
+        }
+
+        body {
+            margin: 0;
+            background: var(--fundo);
+            color: var(--texto);
+            font-family: 'DM Sans', Arial, sans-serif;
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           TOPO
+        ========================= */
+
+        .topo {
+            height: 114px;
+            background: var(--roxo-escuro);
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 25px 0 18px;
+
+            border-bottom: 1px solid #ddd;
+        }
+
+        .logo {
+            height: 90px;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 160px;
+            max-height: 85px;
+
+            object-fit: contain;
+            object-position: center;
+
+            display: block;
+        }
+
+        .perfil {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            font-size: 20px;
+        }
+
+        .perfil small {
+            font-size: 15px;
+        }
+
+        .avatar {
+            width: 62px;
+            height: 62px;
+
+            border-radius: 50%;
+
+            background: var(--lilas);
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .avatar::before {
+            content: "";
+
+            position: absolute;
+
+            width: 25px;
+            height: 25px;
+
+            background: var(--roxo-escuro);
+
+            border-radius: 50%;
+
+            left: 18px;
+            top: 9px;
+        }
+
+        .avatar::after {
+            content: "";
+
+            position: absolute;
+
+            width: 54px;
+            height: 35px;
+
+            background: var(--roxo-escuro);
+
+            border-radius: 40px 40px 0 0;
+
+            left: 4px;
+            top: 37px;
+        }
+
+
+        /* =========================
+           ESTRUTURA PRINCIPAL
+        ========================= */
+
+        .layout {
+            display: grid;
+
+            /* MENU MAIS ESTREITO */
+            grid-template-columns: 230px minmax(0, 1fr);
+
+            min-height: calc(100vh - 114px);
+        }
+
+
+        /* =========================
+           MENU LATERAL
+        ========================= */
+
+        .menu {
+            padding: 16px 6px 20px;
+
+            border-right: 1px solid var(--borda);
+
+            background: #fafafa;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-menu {
+            height: 62px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 5px 8px;
+
+            margin-bottom: 6px;
+
+            border-radius: 6px;
+
+            color: #39383d;
+
+            text-decoration: none;
+
+            font-size: 16px;
+
+            white-space: nowrap;
+        }
+
+        .item-menu:hover {
+            background: #f0ebf8;
+        }
+
+        .item-menu.ativo {
+            background: #ece2ff;
+        }
+
+        /* 
+           TODOS OS ÍCONES DO MENU
+           Ficam exatamente dentro deste espaço.
+        */
+
+        .item-menu img {
+            width: 60px !important;
+            height: 60px !important;
+
+            flex: 0 0 32px;
+
+            object-fit: contain;
+            object-position: center;
+
+            display: block;
+        }
+
+        .menu-espaco {
+            margin-top: auto;
+        }
+
+
+        /* =========================
+           CONTEÚDO
+        ========================= */
+
+        .conteudo {
+            width: 100%;
+
+            /*
+              O conteúdo agora começa mais perto
+              do menu lateral.
+            */
+
+            padding: 18px 14px 30px;
+
+            margin: 0;
+
+            min-width: 0;
+        }
+
+
+        /* =========================
+           BEM-VINDA
+        ========================= */
+
+        .boas-vindas {
+            width: 100%;
+            height: 113px;
+
+            border-radius: 13px;
+
+            background: linear-gradient(
+                100deg,
+                #21113f,
+                #513581
+            );
+
+            color: white;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            padding: 18px 35px;
+
+            margin-bottom: 14px;
+
+            box-shadow: 0 5px 16px #19122524;
+        }
+
+        .boas-vindas h1 {
+            margin: 0;
+
+            font-size: 36px;
+
+            font-weight: 800;
+        }
+
+        .boas-vindas p {
+            margin: 2px 0 0;
+
+            font-size: 16px;
+
+            letter-spacing: 0.4px;
+        }
+
+
+        /* =========================
+           CARDS PRINCIPAIS
+        ========================= */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+
+            gap: 18px;
+
+            margin-bottom: 16px;
+        }
+
+        .card {
+            min-width: 0;
+
+            height: 143px;
+
+            background: white;
+
+            border: 1px solid var(--borda);
+
+            border-radius: 14px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 14px 18px;
+
+            gap: 13px;
+        }
+
+
+        /* 
+           ÁREA DOS ÍCONES
+           Todos os ícones ficam centralizados.
+        */
+
+        .icone-card {
+            width: 88px;
+            height: 88px;
+
+            flex: 0 0 88px;
+
+            border-radius: 50%;
+
+            background: #321866;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+        }
+
+        .icone-card img {
+            width: 102px !important;
+            height: 102px !important;
+
+            object-fit: contain;
+            object-position: center;
+
+            display: block;
+        }
+
+        .informacao-card {
+            min-width: 0;
+        }
+
+        .titulo-card {
+            font-size: 15px;
+
+            color: #6540a2;
+
+            margin-bottom: 2px;
+
+            white-space: nowrap;
+        }
+
+        .numero-card {
+            font-size: 48px;
+
+            line-height: 0.95;
+
+            font-weight: 800;
+
+            color: #321866;
+        }
+
+        .aumento {
+            color: var(--verde);
+
+            font-size: 12px;
+
+            white-space: nowrap;
+
+            margin-left: 5px;
+        }
+
+        .aumento b {
+            font-size: 18px;
+
+            margin-right: 3px;
+        }
+
+
+        /* =========================
+           LINHAS DE PAINÉIS
+        ========================= */
+
+        .linha-paineis {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 14px;
+
+            margin-bottom: 14px;
+        }
+
+        .painel {
+            background: white;
+
+            border: 1px solid var(--borda);
+
+            border-radius: 14px;
+
+            padding: 14px 18px;
+
+            min-width: 0;
+        }
+
+        .painel h2 {
+            color: #421779;
+
+            font-size: 23px;
+
+            margin: 0;
+
+            font-weight: 800;
+        }
+
+        .subtitulo {
+            color: #6f6d72;
+
+            font-size: 14px;
+
+            margin: 1px 0 0;
+        }
+
+
+        /* =========================
+           VISÃO FINANCEIRA
+        ========================= */
+
+        .financeiro {
+            min-height: 246px;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.2fr)
+                minmax(145px, 0.8fr);
+
+            gap: 14px;
+        }
+
+        .grafico-area {
+            position: relative;
+
+            height: 175px;
+
+            margin-top: 5px;
+        }
+
+        .grafico-area svg {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+        }
+
+        .informacoes-financeiras {
+            border-left: 1px solid var(--borda);
+
+            padding-left: 13px;
+
+            min-width: 0;
+        }
+
+        .rotulo {
+            font-size: 17px;
+        }
+
+        .dinheiro {
+            font-size: 24px;
+
+            line-height: 1.2;
+
+            color: #421779;
+
+            font-weight: 800;
+
+            white-space: nowrap;
+        }
+
+        .pequeno {
+            font-size: 10px;
+
+            color: #444;
+        }
+
+        .linha {
+            height: 1px;
+
+            background: var(--borda);
+
+            margin: 14px 0;
+        }
+
+        .lucro {
+            font-size: 24px;
+
+            color: #421779;
+
+            font-weight: 800;
+        }
+
+
+        /* =========================
+           VENDAS
+        ========================= */
+
+        .vendas {
+            min-height: 246px;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.3fr)
+                minmax(145px, 0.9fr);
+
+            gap: 12px;
+        }
+
+        .grafico-barras {
+            height: 172px;
+
+            margin-top: 5px;
+        }
+
+        .grafico-barras svg {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+        }
+
+        .informacoes-vendas {
+            border-left: 1px solid var(--borda);
+
+            padding-left: 13px;
+
+            min-width: 0;
+        }
+
+        .informacoes-vendas .rotulo {
+            font-size: 18px;
+        }
+
+        .informacoes-vendas .dinheiro {
+            font-size: 24px;
+        }
+
+        .porcentagem {
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           RESUMO
+        ========================= */
+
+        .resumo {
+            min-height: 263px;
+        }
+
+        .resumo-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 13px;
+
+            margin-top: 14px;
+        }
+
+        .resumo-item {
+            min-width: 0;
+
+            height: 94px;
+
+            border-radius: 14px;
+
+            background: var(--fundo-claro);
+
+            display: flex;
+            align-items: center;
+
+            padding: 12px 16px;
+
+            gap: 12px;
+        }
+
+        .resumo-item img {
+            width: 90px !important;
+            height: 90px !important;
+
+            flex: 0 0 50px;
+
+            object-fit: contain;
+            object-position: center;
+
+            display: block;
+        }
+
+        .resumo-item span {
+            color: #6634a0;
+
+            font-size: 14px;
+        }
+
+        .resumo-item strong {
+            display: block;
+
+            color: #421779;
+
+            font-size: 24px;
+
+            line-height: 1.1;
+        }
+
+
+        /* =========================
+           ÚLTIMAS ATIVIDADES
+        ========================= */
+
+        .atividades {
+            min-height: 263px;
+
+            padding: 16px 14px;
+        }
+
+        .titulo-atividades {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 8px;
+        }
+
+        .titulo-atividades img {
+            width: 65px !important;
+            height: 65px !important;
+
+            flex: 0 0 40px;
+
+            object-fit: contain;
+            object-position: center;
+
+            display: block;
+        }
+
+        .titulo-atividades h2 {
+            margin: 0;
+
+            color: #421779;
+
+            font-size: 23px;
+
+            font-weight: 800;
+        }
+
+        .ver-todas {
+            margin-left: auto;
+
+            color: #421779;
+
+            font-weight: 700;
+
+            font-size: 13px;
+
+            white-space: nowrap;
+        }
+
+        .atividade {
+            min-height: 64px;
+
+            border-bottom: 1px solid var(--borda);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+        }
+
+        .atividade:last-child {
+            border-bottom: none;
+        }
+
+        .icone-atividade {
+            width: 44px;
+            height: 44px;
+
+            flex: 0 0 44px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+        }
+
+        .icone-atividade img {
+            width: 65px !important;
+            height: 65px !important;
+
+            object-fit: contain;
+            object-position: center;
+
+            display: block;
+        }
+
+        .verde {
+            background: #65d68c;
+        }
+
+        .azul {
+            background: #8495ff;
+        }
+
+        .bege {
+            background: #b4b0a7;
+        }
+
+        .texto-atividade {
+            min-width: 0;
+
+            flex: 1;
+
+            font-size: 14px;
+
+            line-height: 1.4;
+        }
+
+        .texto-atividade small {
+            display: block;
+
+            color: #858187;
+
+            white-space: nowrap;
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+        }
+
+        .horario {
+            font-size: 13px;
+
+            white-space: nowrap;
+
+            padding-left: 5px;
+        }
+
+
+        /* =========================
+           RESPONSIVIDADE
+        ========================= */
+
+        @media (max-width: 1100px) {
+
+            .layout {
+                grid-template-columns: 175px minmax(0, 1fr);
+            }
+
+            .item-menu {
+                font-size: 14px;
+            }
+
+            .item-menu img {
+                width: 49px !important;
+                height: 49px !important;
+            }
+
+            .conteudo {
+                padding: 16px 10px 25px;
+            }
+
+            .cards {
+                gap: 10px;
+            }
+
+            .card {
+                padding: 10px;
+                gap: 7px;
+            }
+
+            .icone-card {
+                width: 75px;
+                height: 75px;
+
+                flex-basis: 75px;
+            }
+
+            .icone-card img {
+                width: 72px !important;
+                height: 72px !important;
+            }
+
+            .titulo-card {
+                font-size: 14px;
+            }
+
+            .numero-card {
+                font-size: 48px;
+            }
+
+            .aumento {
+                font-size: 10px;
+            }
+
+            .financeiro,
+            .vendas {
+                gap: 8px;
+            }
+
+            .dinheiro {
+                font-size: 20px;
+            }
+        }
+
+
+        @media (max-width: 760px) {
+
+            .topo {
+                height: 86px;
+
+                padding: 0 15px;
+            }
+
+            .logo {
+                height: 75px;
+            }
+
+            .logo img {
+                width: 135px;
+            }
+
+            .perfil {
+                font-size: 16px;
+
+                gap: 8px;
+            }
+
+            .perfil small {
+                font-size: 12px;
+            }
+
+            .avatar {
+                width: 50px;
+                height: 50px;
+            }
+
+            .layout {
+                display: block;
+            }
+
+            .menu {
+                flex-direction: row;
+
+                overflow-x: auto;
+
+                border-right: none;
+
+                border-bottom: 1px solid var(--borda);
+
+                padding: 7px;
+
+                gap: 4px;
+            }
+
+            .item-menu {
+                margin: 0;
+
+                height: 40px;
+
+                padding: 5px 8px;
+
+                font-size: 13px;
+            }
+
+            .item-menu img {
+                width: 45px !important;
+                height: 45px !important;
+            }
+
+            .menu-espaco {
+                margin-top: 0;
+            }
+
+            .conteudo {
+                padding: 12px;
+            }
+
+            .boas-vindas {
+                height: 100px;
+
+                padding: 15px 20px;
+            }
+
+            .boas-vindas h1 {
+                font-size: 28px;
+            }
+
+            .boas-vindas p {
+                font-size: 13px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                height: 110px;
+
+                padding: 10px 18px;
+            }
+
+            .icone-card {
+                width: 80px;
+                height: 80px;
+
+                flex-basis: 80px;
+            }
+
+            .icone-card img {
+                width: 56px !important;
+                height: 56px !important;
+            }
+
+            .titulo-card {
+                font-size: 17px;
+            }
+
+            .numero-card {
+                font-size: 54px;
+            }
+
+            .linha-paineis {
+                grid-template-columns: 1fr;
+
+                gap: 12px;
+            }
+
+            .financeiro,
+            .vendas {
+                min-height: 240px;
+            }
+
+            .resumo,
+            .atividades {
+                min-height: 250px;
+            }
+        }
+
+
+        @media (max-width: 420px) {
+
+            .financeiro,
+            .vendas {
+                grid-template-columns: 1fr;
+            }
+
+            .informacoes-financeiras,
+            .informacoes-vendas {
+                border-left: none;
+
+                border-top: 1px solid var(--borda);
+
+                padding: 12px 0 0;
+            }
+
+            .resumo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .resumo {
+                min-height: auto;
+            }
+
+            .painel h2 {
+                font-size: 21px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         TOPO
+    ========================= -->
+
+    <header class="topo">
+
+        <div class="logo">
+            <img
+                src="logo_imobi.png"
+                alt="IMOBI - Gestão Imobiliária"
+            >
+        </div>
+
+        <div class="perfil">
+
+            <span class="avatar"></span>
+
+            <div>
+                Clara<br>
+                <small>Administradora</small>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         ESTRUTURA
+    ========================= -->
+
+    <div class="layout">
+
+
+        <!-- =========================
+             MENU
+        ========================= -->
+
+        <aside class="menu">
+
+            <a class="item-menu ativo" href="#inicio">
+                <img src="casa_pagina_principal.png" alt="">
+                <span>Página inicial</span>
+            </a>
+
+            <a class="item-menu" href="#imoveis">
+                <img src="casa_imoveis.png" alt="">
+                <span>Imóveis</span>
+            </a>
+
+            <a class="item-menu" href="#clientes">
+                <img src="pessoas_clientes.png" alt="">
+                <span>Clientes</span>
+            </a>
+
+            <a class="item-menu" href="#proprietarios">
+                <img src="pessoa_proprietarios.png" alt="">
+                <span>Proprietários</span>
+            </a>
+
+            <a class="item-menu" href="#corretores">
+                <img src="papel_corretores.png" alt="">
+                <span>Corretores</span>
+            </a>
+
+            <a class="item-menu" href="#relatorios">
+                <img src="grafico_relatorios.png" alt="">
+                <span>Relatórios</span>
+            </a>
+
+            <a class="item-menu" href="#configuracoes">
+                <img src="engrenagem_configuraçoes.png" alt="">
+                <span>Configurações</span>
+            </a>
+
+
+            <div class="menu-espaco"></div>
+
+
+            <a class="item-menu" href="#ajuda">
+                <img src="interrogaçao_ajuda.png" alt="">
+                <span>Ajuda</span>
+            </a>
+
+            <a class="item-menu" href="#sair">
+                <img src="porta_sair.png" alt="">
+                <span>Sair</span>
+            </a>
+
+        </aside>
+
+
+        <!-- =========================
+             CONTEÚDO PRINCIPAL
+        ========================= -->
+
+        <main class="conteudo" id="inicio">
+
+
+            <!-- BEM-VINDA -->
+
+            <section class="boas-vindas">
+
+                <h1>Bem-vinda, Clara!</h1>
+
+                <p>
+                    Veja um panorama do desempenho dos seus funcionários.
+                </p>
+
+            </section>
+
+
+            <!-- =========================
+                 CARDS
+            ========================= -->
+
+            <section class="cards">
+
+
+                <article class="card">
+
+                    <div class="icone-card">
+                        <img
+                            src="predio_imoveis_cadastrados.png"
+                            alt=""
+                        >
+                    </div>
+
+                    <div class="informacao-card">
+
+                        <div class="titulo-card">
+                            Imóveis cadastrados
+                        </div>
+
+                        <span class="numero-card">
+                            128
+                        </span>
+
+                        <span class="aumento">
+                            <b>⬆</b>
+                            + 8 este mês
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="icone-card">
+                        <img
+                            src="pessoas_cliente_cadastrados.png"
+                            alt=""
+                        >
+                    </div>
+
+                    <div class="informacao-card">
+
+                        <div class="titulo-card">
+                            Clientes cadastrados
+                        </div>
+
+                        <span class="numero-card">
+                            96
+                        </span>
+
+                        <span class="aumento">
+                            <b>⬆</b>
+                            + 24 este mês
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="icone-card">
+                        <img
+                            src="papel_contratos_ativos.png"
+                            alt=""
+                        >
+                    </div>
+
+                    <div class="informacao-card">
+
+                        <div class="titulo-card">
+                            Contratos ativos
+                        </div>
+
+                        <span class="numero-card">
+                            88
+                        </span>
+
+                        <span class="aumento">
+                            <b>⬆</b>
+                            + 5 este mês
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- =========================
+                 PAINÉIS FINANCEIROS
+            ========================= -->
+
+            <section class="linha-paineis">
+
+
+                <!-- VISÃO FINANCEIRA -->
+
+                <article class="painel financeiro">
+
+                    <div>
+
+                        <h2>Visão financeira</h2>
+
+                        <p class="subtitulo">
+                            Desempenho financeiro
+                        </p>
+
+                        <div class="grafico-area">
+
+                            <svg
+                                viewBox="0 0 360 170"
+                                preserveAspectRatio="none"
+                            >
+
+                                <path
+                                    d="M5 102 L56 86 L107 48 L158 29 L209 77 L260 91 L311 107 L355 102 L355 170 L5 170Z"
+                                    fill="#321866"
+                                />
+
+                                <path
+                                    d="M5 102 L56 86 L107 48 L158 29 L209 77 L260 91 L311 107 L355 102"
+                                    fill="none"
+                                    stroke="#321866"
+                                    stroke-width="2"
+                                />
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="informacoes-financeiras">
+
+                        <div class="rotulo">
+                            Total
+                        </div>
+
+                        <div class="dinheiro">
+                            R$7.750.000,00
+                        </div>
+
+                        <div class="pequeno">
+                            de renda bruta esse ano
+                        </div>
+
+                        <div class="linha"></div>
+
+                        <div class="rotulo">
+                            Lucro
+                        </div>
+
+                        <div class="lucro">
+                            28%
+                        </div>
+
+                        <div class="pequeno">
+                            de renda líquida esse ano
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- VENDAS -->
+
+                <article class="painel vendas">
+
+                    <div>
+
+                        <h2>Visão financeira</h2>
+
+                        <p class="subtitulo">
+                            Resumo dos últimos 3 meses
+                        </p>
+
+                        <div class="grafico-barras">
+
+                            <svg
+                                viewBox="0 0 430 175"
+                                preserveAspectRatio="none"
+                            >
+
+                                <g
+                                    font-family="DM Sans,Arial"
+                                    font-size="10"
+                                    fill="#333"
+                                >
+
+                                    <text x="4" y="20">
+                                        jun
+                                    </text>
+
+                                    <text x="4" y="83">
+                                        jul
+                                    </text>
+
+                                    <text x="4" y="147">
+                                        ago
+                                    </text>
+
+                                </g>
+
+
+                                <g fill="#6550a4">
+
+                                    <rect
+                                        x="36"
+                                        y="12"
+                                        width="306"
+                                        height="4"
+                                    />
+
+                                    <rect
+                                        x="36"
+                                        y="75"
+                                        width="255"
+                                        height="4"
+                                    />
+
+                                    <rect
+                                        x="36"
+                                        y="138"
+                                        width="270"
+                                        height="4"
+                                    />
+
+                                </g>
+
+
+                                <g fill="#751ac2">
+
+                                    <rect
+                                        x="36"
+                                        y="18"
+                                        width="195"
+                                        height="4"
+                                    />
+
+                                    <rect
+                                        x="36"
+                                        y="81"
+                                        width="161"
+                                        height="4"
+                                    />
+
+                                    <rect
+                                        x="36"
+                                        y="144"
+                                        width="172"
+                                        height="4"
+                                    />
+
+                                </g>
+
+
+                                <g
+                                    font-family="DM Sans,Arial"
+                                    font-size="10"
+                                    fill="#333"
+                                    text-anchor="middle"
+                                >
+
+                                    <text x="36" y="164">
+                                        0
+                                    </text>
+
+                                    <text x="101" y="164">
+                                        100.000
+                                    </text>
+
+                                    <text x="166" y="164">
+                                        200.000
+                                    </text>
+
+                                    <text x="231" y="164">
+                                        300.000
+                                    </text>
+
+                                    <text x="296" y="164">
+                                        400.000
+                                    </text>
+
+                                    <text x="361" y="164">
+                                        500.000
+                                    </text>
+
+                                </g>
+
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="informacoes-vendas">
+
+                        <div class="rotulo">
+                            Venda de imóveis
+                        </div>
+
+                        <div class="dinheiro">
+                            R$1.265.000,00
+                        </div>
+
+                        <div class="porcentagem">
+                            55% da receita
+                        </div>
+
+                        <div class="linha"></div>
+
+                        <div class="rotulo">
+                            Aluguel de imóveis
+                        </div>
+
+                        <div class="dinheiro">
+                            R$805.000,00
+                        </div>
+
+                        <div class="porcentagem">
+                            35% da receita
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- =========================
+                 RESUMO E ATIVIDADES
+            ========================= -->
+
+            <section class="linha-paineis">
+
+
+                <!-- RESUMO -->
+
+                <article class="painel resumo">
+
+                    <h2>
+                        Resumo da gestão
+                    </h2>
+
+
+                    <div class="resumo-grid">
+
+
+                        <div class="resumo-item">
+
+                            <img
+                                src="pessoas_funcionarios_ativos.png"
+                                alt=""
+                            >
+
+                            <div>
+
+                                <span>
+                                    Funcionários ativos
+                                </span>
+
+                                <strong>
+                                    22
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="resumo-item">
+
+                            <img
+                                src="casa_imoveis_disponiveis.png"
+                                alt=""
+                            >
+
+                            <div>
+
+                                <span>
+                                    Imóveis disponíveis
+                                </span>
+
+                                <strong>
+                                    57
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="resumo-item">
+
+                            <img
+                                src="papel_contratos_ativos.png"
+                                alt=""
+                            >
+
+                            <div>
+
+                                <span>
+                                    Contratos vencendo
+                                </span>
+
+                                <strong>
+                                    9
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="resumo-item">
+
+                            <img
+                                src="alerta_pendencias.png"
+                                alt=""
+                            >
+
+                            <div>
+
+                                <span>
+                                    Pendências
+                                </span>
+
+                                <strong>
+                                    4
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </article>
+
+
+                <!-- ÚLTIMAS ATIVIDADES -->
+
+                <article class="painel atividades">
+
+
+                    <div class="titulo-atividades">
+
+                        <img
+                            src="relogio_ultimas_atividades.png"
+                            alt=""
+                        >
+
+                        <h2>
+                            Últimas atividades
+                        </h2>
+
+                        <span class="ver-todas">
+                            Ver todas
+                        </span>
+
+                    </div>
+
+
+                    <!-- ATIVIDADE 1 -->
+
+                    <div class="atividade">
+
+                        <div class="icone-atividade verde">
+
+                            <img
+                                src="papel_novo_contrato_assinado.png"
+                                alt=""
+                            >
+
+                        </div>
+
+                        <div class="texto-atividade">
+
+                            Novo contrato assinado
+
+                            <small>
+                                Apartamento - Ed. Aurora
+                            </small>
+
+                        </div>
+
+                        <span class="horario">
+                            14:22
+                        </span>
+
+                    </div>
+
+
+                    <!-- ATIVIDADE 2 -->
+
+                    <div class="atividade">
+
+                        <div class="icone-atividade azul">
+
+                            <img
+                                src="dinheiro_pagamento_recebido.png"
+                                alt=""
+                            >
+
+                        </div>
+
+                        <div class="texto-atividade">
+
+                            Pagamento recebido
+
+                            <small>
+                                Aluguel - Avenida Mariano de Ávila 100
+                            </small>
+
+                        </div>
+
+                        <span class="horario">
+                            10:07
+                        </span>
+
+                    </div>
+
+
+                    <!-- ATIVIDADE 3 -->
+
+                    <div class="atividade">
+
+                        <div class="icone-atividade bege">
+
+                            <img
+                                src="pessoas_cliente_cadastrado.png"
+                                alt=""
+                            >
+
+                        </div>
+
+                        <div class="texto-atividade">
+
+                            Cliente cadastrado
+
+                            <small>
+                                Raquel Lima
+                            </small>
+
+                        </div>
+
+                        <span class="horario">
+                            ontem
+                        </span>
+
+                    </div>
+
+
+                </article>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>
+```

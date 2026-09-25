@@ -6,6 +6,8 @@ function painelParaEmail(email) {
 
   if (endereco.endsWith('@adm')) return 'adm.html';
   if (endereco.endsWith('@corretor')) return 'corretor.html';
+  if (endereco.endsWith('@proprietario')) return 'proprietario.html';
+  if (endereco.endsWith('@cliente')) return 'index2.html';
 
   return null;
 }
@@ -22,7 +24,7 @@ form.addEventListener('submit', (event) => {
   const destino = painelParaEmail(form.email.value);
   if (!destino) {
     feedback.className = 'feedback';
-    feedback.textContent = 'Use um e-mail terminado em @adm ou @corretor para acessar o painel correto.';
+    feedback.textContent = 'Use um e-mail terminado em @adm, @corretor, @proprietario ou @cliente.';
     return;
   }
 

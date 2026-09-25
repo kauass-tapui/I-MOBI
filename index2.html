@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I-MOBI - Área do Cliente</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@font-face {
+    font-family: 'Glacial Indifference';
+    src: local('Glacial Indifference'), url('GlacialIndifference-Regular.otf') format('opentype');
+}
+
+:root {
+    --navy: #1f123a;
+    --purple: #35166a;
+    --accent: #612ca4;
+    --lav: #a99bc9;
+    --pale: #f5f2fb;
+    --ink: #333238;
+    --muted: #727078;
+    --line: #e5e3e8;
+    --badge: #9b72cf;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: #fafafa;
+    font-family: 'Poppins', 'Glacial Indifference', sans-serif;
+    font-size: 17px;
+}
+
+/* topo */
+.top {
+    height: 100px;
+    background: #160d2d;
+    color: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4.2% 0 35px;
+}
+
+.brand {
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.brand-logo {
+    max-width: 190px;
+    max-height: 88px;
+    object-fit: contain;
+}
+
+.header-center {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 25px;
+    padding: 4px 6px 4px 20px;
+    width: 420px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #888;
+}
+
+.search-btn {
+    background: #000;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.search-btn img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+    display: block;
+    filter: brightness(0) invert(1);
+}
+
+/* Favoritos e mensagens */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.header-icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #ffffff;
+    gap: 4px;
+}
+
+/* Contêiner de isolamento para a mensagem e a bolinha */
+.icon-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Bolinha com o número 1 */
+.header-icon-item .badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background-color: #6C2BD9;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: bold;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.header-icon-item span:not(.badge) {
+    font-size: 13px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.header-icon-item > img,
+.icon-wrapper > img,
+.header-icon-item > svg,
+.icon-wrapper > svg {
+    width: 38px;
+    height: 34px;
+    object-fit: contain;
+}
+
+.header-icon-svg { fill: none; stroke: #ffffff; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.profile small {
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    color: #ccc;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #e2d3ff;
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar:before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--navy);
+    border-radius: 50%;
+    left: 15px;
+    top: 8px;
+}
+
+.avatar:after {
+    content: '';
+    position: absolute;
+    width: 44px;
+    height: 28px;
+    background: var(--navy);
+    border-radius: 30px 30px 0 0;
+    left: 3px;
+    top: 29px;
+}
+
+/* Tabs */
+.tabs-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 25px;
+    padding: 9px 5% 9px;
+    background: #ffffff;
+}
+
+.tab {
+    font-size: 19px;
+    font-weight: 700;
+    color: #20113e;
+    text-decoration: none;
+    padding-bottom: 4px;
+}
+
+.tab.active {
+    border-bottom: 3px solid #20113e;
+}
+
+/* Banner de fundo */
+.hero-banner {
+    position: relative;
+    width: 100%;
+    height: 285px;
+    background-image: url('imovel-principal.png'); 
+    background-repeat: no-repeat;  
+    background-size: cover;        
+    background-position: center;  
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding-left: 5%;
+    max-width: 550px;
+}
+
+.hero-content h1 {
+    font-size: 44px;
+    color: #1a0933;
+    margin: 0 0 8px;
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.hero-content p {
+    font-size: 17px;
+    color: #555;
+    margin: 0 0 20px;
+}
+
+.btn-search-hero {
+    background: #330c66;
+    color: #fff;
+    border: none;
+    padding: 13px 26px;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: inherit;
+}
+
+.btn-search-hero img {
+    width: 16px;
+    height: 16px;
+}
+
+/* Área Principal */
+.main {
+    padding: 0 28px 56px;
+    width: 100%;
+    max-width: 1480px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+}
+
+/* Quadro de Filtros */
+.filters-bar {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 18px 20px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-top: -34px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e8e8ec;
+    margin-bottom: 36px;
+}
+
+.filter-select {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    background: #fff;
+}
+
+.filter-select img {
+    width: 12px;
+    height: 12px;
+}
+
+/* Grid Inferior */
+.content-grid {
+    display: grid;
+    grid-template-columns: minmax(420px, 1fr) minmax(0, 2.05fr);
+    gap: 28px;
+    width: 100%;
+}
+
+.card-panel {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    min-height: 350px;
+    padding: 26px;
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.panel-header img {
+    width: 28px;
+    height: 28px;
+}
+
+.calendar-icon {
+    display: inline-flex;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #35166a;
+    border-radius: 6px;
+    color: #35166a;
+    font-size: 19px;
+    line-height: 1;
+}
+
+.panel-header h2 {
+    font-size: 21px;
+    color: #35166a;
+    margin: 0;
+    font-weight: 700;
+}
+
+.panel-header .see-all {
+    margin-left: auto;
+    color: #35166a;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Lista de Visitas */
+.visit-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 17px;
+    background: #fafafa;
+    border-radius: 8px;
+    padding: 13px;
+}
+
+.visit-date {
+    background: #321866;
+    color: #fff;
+    border-radius: 6px;
+    padding: 6px 10px;
+    text-align: center;
+    min-width: 50px;
+}
+
+.visit-date .day {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.visit-date .month {
+    font-size: 11px;
+    text-transform: lowercase;
+}
+
+.visit-info {
+    flex: 1;
+}
+
+.visit-info h4 {
+    margin: 0 0 2px;
+    font-size: 15px;
+    color: #20113e;
+}
+
+.visit-info p {
+    margin: 0;
+    font-size: 12px;
+    color: #777;
+}
+
+.visit-time {
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+}
+
+.visit-status {
+    background: #a99bc9;
+    color: #fff;
+    font-size: 10px;
+    padding: 3px 7px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.btn-agenda {
+    width: 100%;
+    background: #321866;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    font-family: inherit;
+}
+
+/* Cards de Imóveis */
+.property-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.property-card {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    min-height: 208px;
+    background: #fff;
+}
+
+.property-img {
+    width: 43%;
+    height: 100%;
+    min-height: 208px;
+    object-fit: cover;
+}
+
+.property-details {
+    width: 57%;
+    padding: 16px 17px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.property-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #20113e;
+    margin: 0 0 2px;
+}
+
+.property-agency {
+    font-size: 12px;
+    color: #666;
+    margin: 0;
+}
+
+.property-location {
+    font-size: 12px;
+    color: #888;
+    margin: 0 0 8px;
+}
+
+.property-features {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 13px;
+    row-gap: 6px;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.feature-item::before { color: #5e4090; font-size: 14px; }
+.feature-item.bed::before { content: '▱'; }
+.feature-item.bath::before { content: '♧'; }
+.feature-item.area::before { content: '□'; }
+
+.feature-item img {
+    width: 14px;
+    height: 14px;
+}
+
+.property-price {
+    background: #8e68c8;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    align-self: flex-start;
+}
+
+/* Responsividade */
+@media(max-width: 1024px) {
+    .content-grid { grid-template-columns: 1fr; }
+    .filters-bar { grid-template-columns: 1fr 1fr; margin-top: 0; }
+    .header-center { display: none; }
+}
+
+@media(max-width: 600px) {
+    .property-cards { grid-template-columns: 1fr; }
+    .property-card { flex-direction: column; }
+    .property-img { width: 100%; height: 160px; }
+    .property-details { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+    <div class="brand">
+        <img class="brand-logo" src="logo_imobi.png" alt="MOBI — Gestão Imobiliária">
+    </div>
+
+    <div class="header-center">
+        <div class="search-box">
+            <input type="text" placeholder="Ex: apartamento dois quartos...">
+            <button class="search-btn">
+                <img src="lupa_sem_fundo.png" alt="Buscar">
+            </button>
+        </div>
+    </div>
+
+    <div class="header-right">
+        <a href="#favoritos" class="header-icon-item">
+            <svg class="header-icon-svg" viewBox="0 0 40 36" aria-hidden="true"><path d="M20 31S4 22.5 4 12.6C4 7.9 7.6 5 11.8 5c3.2 0 6.2 1.9 8.2 4.9C22 6.9 25 5 28.2 5 32.4 5 36 7.9 36 12.6 36 22.5 20 31 20 31Z"/></svg>
+            <span>Favoritos</span>
+        </a>
+        
+        <!-- MENSAGENS COM WRAPPER PARA O BADGE -->
+        <a href="#mensagens" class="header-icon-item">
+            <div class="icon-wrapper">
+                <span class="badge">1</span>
+                <svg class="header-icon-svg" viewBox="0 0 40 36" aria-hidden="true"><path d="M6 7.5h28v17H19l-7 6v-6H6z"/><path d="M13 16h.1M20 16h.1M27 16h.1" stroke-width="3.5"/></svg>
+            </div>
+            <span>Mensagens</span>
+        </a>
+
+        <div class="profile">
+            <span class="avatar"></span>
+            <div>
+                Daniel<br>
+                <small>Cliente</small>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="tabs-container">
+    <a href="#comprar" class="tab active">Para comprar</a>
+    <a href="#alugar" class="tab">Para alugar</a>
+</div>
+
+<section class="hero-banner">
+    <div class="hero-content">
+        <h1>Encontre o imóvel<br>perfeito para você!</h1>
+        <p>Mais de 500 imobiliárias cadastradas no Imobi</p>
+        <button class="btn-search-hero">
+            <img src="lupa_sem_fundo.png" alt=""> Buscar imóveis
+        </button>
+    </div>
+</section>
+
+<main class="main">
+
+    <section class="filters-bar">
+      <div class="filter-select">
+    <span>Tipo</span>
+    <i class="seta-icon">&#709;</i>
+</div>
+         <div class="filter-select">
+    <span>Bairro</span>
+    <i class="seta-icon">&#709;</i>
+</div>
+         <div class="filter-select">
+    <span>Finalidade</span>
+    <i class="seta-icon">&#709;</i>
+</div>
+         <div class="filter-select">
+    <span>Quartos</span>
+    <i class="seta-icon">&#709;</i>
+</div>
+         <div class="filter-select">
+    <span>Valor</span>
+    <i class="seta-icon">&#709;</i>
+</div>
+    </section>
+
+    <div class="content-grid">
+
+        <!-- Próximas Visitas -->
+        <article class="card-panel">
+            <div class="panel-header">
+                <span class="calendar-icon" aria-hidden="true">▣</span>
+                <h2>Próximas visitas agendadas</h2>
+            </div>
+
+            <div class="visit-item">
+                <div class="visit-date">
+                    <div class="day">05</div>
+                    <div class="month">jul</div>
+                </div>
+                <div class="visit-time">09:00</div>
+                <div class="visit-info">
+                    <h4>Apartamento no centro</h4>
+                    <p>Rua das Tartarugas, 679</p>
+                    <p>Ana Paula (corretora)</p>
+                </div>
+                <div>
+                    <span class="visit-status">confirmada</span>
+                </div>
+            </div>
+
+            <div class="visit-item">
+                <div class="visit-date">
+                    <div class="day">22</div>
+                    <div class="month">ago</div>
+                </div>
+                <div class="visit-time">14:30</div>
+                <div class="visit-info">
+                    <h4>Casa no Umuarama</h4>
+                    <p>Avenida das Palmeiras, 999</p>
+                    <p>Eduardo (corretor)</p>
+                </div>
+                <div>
+                    <span class="visit-status">confirmada</span>
+                </div>
+            </div>
+
+            <button class="btn-agenda">+ Agendar visita</button>
+        </article>
+
+        <!-- Últimos Imóveis Vistos -->
+        <article class="card-panel">
+            <div class="panel-header">
+                <img src="relogio.png" alt="Relógio">
+                <h2>Últimos imóveis vistos</h2>
+                <a href="#todos" class="see-all">Ver todos</a>
+            </div>
+
+            <div class="property-cards">
+                
+                <!-- Imóvel 1 -->
+                <div class="property-card">
+                    <img src="casa1.png" alt="Apartamento Alto da Boa Vista" class="property-img">
+                    <div class="property-details">
+                        <div>
+                            <h3 class="property-title">Apartamento no Alto da Boa Vista</h3>
+                            <p class="property-agency">Imobiliária Trevo</p>
+                            <p class="property-location">Alto da Boa Vista, São Paulo - SP</p>
+                        </div>
+
+                        <div class="property-features">
+                            <span class="feature-item bed">2 quartos</span>
+                            <span class="feature-item bath">2 banheiros</span>
+                            <span class="feature-item area">80 m²</span>
+                        </div>
+
+                        <span class="property-price">R$780.000</span>
+                    </div>
+                </div>
+
+                <!-- Imóvel 2 -->
+                <div class="property-card">
+                    <img src="casa2.png" alt="Casa no Brooklin" class="property-img">
+                    <div class="property-details">
+                        <div>
+                            <h3 class="property-title">Casa no Brooklin</h3>
+                            <p class="property-agency">Imobiliária Céu Azul</p>
+                            <p class="property-location">Brooklin, São Paulo - SP</p>
+                        </div>
+
+                        <div class="property-features">
+                            <span class="feature-item bed">3 quartos</span>
+                            <span class="feature-item bath">2 banheiros</span>
+                            <span class="feature-item area">110 m²</span>
+                        </div>
+
+                        <span class="property-price">R$1.480.000</span>
+                    </div>
+                </div>
+
+            </div>
+        </article>
+
+    </div>
+
+</main>
+
+</body>
+</html>

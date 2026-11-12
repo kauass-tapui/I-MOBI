@@ -6,7 +6,7 @@ html { min-height: 100%; }
 body { min-height: 100%; margin: 0; min-width: 320px; overflow-x: hidden; background: #fff; color: var(--ink); font-family: "Baloo 2", "Trebuchet MS", sans-serif; }
 .page { width: 100%; min-height: 100vh; min-height: 100dvh; display: grid; grid-template-columns: minmax(0, 1fr) minmax(420px, 1fr); }
 .brand-panel { min-height: 100vh; min-height: 100dvh; display: grid; place-items: center; padding: 36px; overflow: hidden; background: #22153c; }
-.brand-mark { width: min(78%, 680px); aspect-ratio: 1422 / 786; background: url("logo-imobi-transparente.png") center / contain no-repeat; }
+.brand-mark { width: min(78%, 680px); aspect-ratio: 1422 / 786; background: url("logo-imobi-transparente.png?v=2") center / contain no-repeat; }
 .brand-mark svg { display: none; }
 .tagline { font: 500 17px "Montserrat", Arial, sans-serif; letter-spacing: 1px; }
 .mobi { font: 300 91px "Montserrat", Arial, sans-serif; letter-spacing: -5px; }

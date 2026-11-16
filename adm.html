@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Painel administrativo da I-MOBI.">
+  <title>I-MOBI | Administração</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <header class="topo">
+    <a class="logo" href="index.html" aria-label="I-MOBI, página inicial"><img src="logo_imobi.png" alt="I-MOBI Gestão Imobiliária"></a>
+    <a class="perfil" href="configuracoes.html" aria-label="Abrir configurações do perfil de Clara"><span class="avatar" aria-hidden="true"></span><span>Clara<br><small>Administradora</small></span></a>
+  </header>
+
+  <div class="layout">
+    <aside class="menu" aria-label="Menu administrativo">
+      <a class="item-menu ativo" href="#inicio"><img src="casa_pagina_principal.png" alt=""><span>Visão geral</span></a>
+      <a class="item-menu" href="#imoveis"><img src="casa_imoveis.png" alt=""><span>Imóveis</span></a>
+      <a class="item-menu" href="#usuarios"><img src="pessoas_clientes.png" alt=""><span>Usuários</span></a>
+      <a class="item-menu" href="#corretores"><img src="papel_corretores.png" alt=""><span>Corretores</span></a>
+      <a class="item-menu" href="#relatorios"><img src="grafico_relatorios.png" alt=""><span>Relatórios</span></a>
+      <a class="item-menu" href="configuracoes.html"><img src="engrenagem_configuraçoes.png" alt=""><span>Configurações</span></a>
+      <div class="menu-espaco"></div>
+      <a class="item-menu" href="ajuda.html"><img src="interrogaçao_ajuda.png" alt=""><span>Ajuda</span></a>
+      <a class="item-menu sair" href="login.html"><img src="porta_sair.png" alt=""><span>Sair</span></a>
+    </aside>
+
+    <main class="conteudo" id="inicio">
+      <section class="boas-vindas" aria-labelledby="titulo-painel">
+        <div><h1 id="titulo-painel">Bem-vinda, Clara!</h1><p>Acompanhe a operação e os recursos da I-MOBI em um só lugar.</p></div>
+        <p class="contexto">Administração do sistema</p>
+      </section>
+
+      <section class="cards" aria-label="Indicadores gerais">
+        <article class="card roxo"><span class="icone-card"><img src="predio_imoveis_cadastrados.png" alt=""></span><div class="informacao-card"><div class="titulo-card">Imóveis cadastrados</div><strong class="numero-card">128</strong><span class="aumento">↑ + 8 este mês</span></div></article>
+        <article class="card azul"><span class="icone-card"><img src="pessoas_cliente_cadastrados.png" alt=""></span><div class="informacao-card"><div class="titulo-card">Clientes cadastrados</div><strong class="numero-card">96</strong><span class="aumento">↑ + 24 este mês</span></div></article>
+        <article class="card cinza"><span class="icone-card"><img src="papel_contratos_ativos.png" alt=""></span><div class="informacao-card"><div class="titulo-card">Contratos ativos</div><strong class="numero-card">88</strong><span class="aumento">↑ + 5 este mês</span></div></article>
+      </section>
+
+      <section class="linha-paineis">
+        <div class="coluna-paineis">
+          <article class="painel" id="imoveis">
+            <div class="titulo-painel"><div><h2>Imóveis em acompanhamento</h2><p>Visão operacional dos anúncios cadastrados.</p></div><a class="acao-texto" href="buscar-imoveis.html">Ver imóveis</a></div>
+            <div class="tabela-wrap"><table class="tabela"><thead><tr><th>Imóvel</th><th>Responsável</th><th>Situação</th></tr></thead><tbody><tr><td>Ed. Aurora</td><td>Ana Paula</td><td><span class="status ativo">Contrato ativo</span></td></tr><tr><td>Casa Jardim América</td><td>Eduardo</td><td><span class="status disponivel">Disponível</span></td></tr><tr><td>Studio Comercial</td><td>—</td><td><span class="status atencao">Revisar anúncio</span></td></tr></tbody></table></div>
+          </article>
+
+          <article class="painel" id="usuarios">
+            <div class="titulo-painel"><div><h2>Gestão de usuários</h2><p>Cadastros que exigem acompanhamento.</p></div><a class="acao-texto" href="#corretores">Ver corretores</a></div>
+            <div class="atividades"><div class="atividade"><img src="pessoas_cliente_cadastrado.png" alt=""><div><strong>Cliente cadastrado</strong><p>Raquel Lima entrou na base de clientes.</p></div><time>ontem</time></div><div class="atividade"><img src="pessoa_proprietarios.png" alt=""><div><strong>Dados de proprietário atualizados</strong><p>Informações do imóvel foram revisadas.</p></div><time>ontem</time></div></div>
+          </article>
+        </div>
+
+        <article class="painel" id="relatorios">
+          <div class="titulo-painel"><div><h2>Visão financeira</h2><p>Resumo dos últimos três meses.</p></div><a class="acao-texto" href="#atividade">Ver atividades</a></div>
+          <div class="financeiro-total"><div class="metrica"><span>Total de receita</span><strong>R$7.750.000,00</strong></div><div class="metrica"><span>Lucro</span><strong>28%</strong></div></div>
+          <div class="grafico-barras" aria-label="Receita mensal"><div class="barra"><span>jun</span><i style="--percentual:86%"></i></div><div class="barra"><span>jul</span><i style="--percentual:72%"></i></div><div class="barra"><span>ago</span><i style="--percentual:65%"></i></div></div>
+          <div class="nota-cobranca"><span aria-hidden="true">ⓘ</span><span><b>Modelo de cobrança:</b> as condições financeiras são vinculadas à negociação concluída, sem planos de assinatura.</span></div>
+        </article>
+      </section>
+
+      <section class="linha-paineis" id="corretores">
+        <article class="painel">
+          <div class="titulo-painel"><div><h2>Resumo da gestão</h2><p>Indicadores dos recursos administrados.</p></div></div>
+          <div class="resumo-grid"><div class="resumo-item"><img src="pessoas_funcionarios_ativos.png" alt=""><div><span>Funcionários ativos</span><strong>22</strong></div></div><div class="resumo-item"><img src="casa_imoveis_disponiveis.png" alt=""><div><span>Imóveis disponíveis</span><strong>57</strong></div></div><div class="resumo-item"><img src="papel_contratos_ativos.png" alt=""><div><span>Contratos vencendo</span><strong>9</strong></div></div><div class="resumo-item"><img src="alerta_pendencias.png" alt=""><div><span>Pendências</span><strong>4</strong></div></div></div>
+        </article>
+        <article class="painel" id="atividade">
+          <div class="titulo-painel"><div><h2>Últimas atividades</h2><p>Movimentações recentes da plataforma.</p></div></div>
+          <div class="atividades"><div class="atividade"><img src="papel_novo_contrato_assinado.png" alt=""><div><strong>Novo contrato assinado</strong><p>Apartamento – Ed. Aurora</p></div><time>14:22</time></div><div class="atividade"><img src="dinheiro_pagamento_recebido.png" alt=""><div><strong>Pagamento recebido</strong><p>Aluguel – Avenida Mariano de Ávila 100</p></div><time>10:07</time></div><div class="atividade"><img src="pessoas_cliente_cadastrado.png" alt=""><div><strong>Cliente cadastrado</strong><p>Raquel Lima</p></div><time>ontem</time></div></div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

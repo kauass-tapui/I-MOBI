@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMOBI - Agenda</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/glacial-indifference');
+    body { font-family: 'Glacial Indifference', sans-serif; background-color: #fafafa; }
+    .bg-mobi-topbar { background-color: #1f123a; }
+    .text-mobi-purple { color: #3b1b6c; }
+    .bg-agenda-block { background-color: #2f1b5b; }
+
+    .nav-item {
+      background-color: transparent;
+      color: #374151;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .nav-item:not(.active):hover {
+      background-color: #f3ebff;
+      color: #3b1b6c;
+    }
+    .nav-item.active {
+      background-color: #e2d3ff !important;
+      color: #3b1b6c !important;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="flex flex-col h-screen overflow-hidden text-gray-800">
+ <!-- BARRA ROXA DO TOPO -->
+  <header class="w-full bg-mobi-topbar text-white px-8 h-28 flex items-center justify-between border-b border-purple-900/40 z-20 shrink-0">
+    <a href="corretor.html" class="h-full py-4 flex items-center">
+      <img src="width_200.png" alt="IMOBI" class="h-full w-auto object-contain mix-blend-screen filter contrast-125" />
+    </a>
+
+    <div class="flex items-center gap-3.5 cursor-pointer">
+      <div class="w-12 h-12 rounded-full bg-[#a382c9] flex items-center justify-center overflow-hidden">
+        <i class="fa-solid fa-user text-[#1f123a] text-2xl mt-1"></i>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-white font-semibold text-lg leading-snug">Eduardo</span>
+        <span class="text-white text-xs opacity-90">Corretor</span>
+      </div>
+    </div>
+  </header>
+  <!-- CORPO PRINCIPAL -->
+  <div class="flex flex-1 overflow-hidden h-[calc(100vh-112px)]">
+    <!-- SIDEBAR -->
+   <aside class="w-64 bg-[#fafafa] flex flex-col justify-between border-r border-gray-200 p-4 shrink-0 h-full text-gray-700 z-10">
+  <nav class="space-y-1 flex-1" id="menuSidebar">
+    <a href="corretor.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+      <div class="w-6 h-6 flex items-center justify-center shrink-0 overflow-hidden">
+        <img src="casa_pagina_principal-removebg-preview-Photoroom.png" alt="Página inicial" class="w-full h-full object-contain scale-150 mix-blend-multiply">
+      </div>
+      <span>Página inicial</span>
+    </a>
+    <a href="imoveis.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+      <div class="w-6 h-6 flex items-center justify-center shrink-0 overflow-hidden">
+        <img src="casa_imoveis.png" alt="Imóveis" class="w-full h-full object-contain scale-150 mix-blend-multiply">
+      </div>
+      <span>Imóveis</span>
+    </a>
+    <a href="clientes.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+      <div class="w-6 h-6 flex items-center justify-center shrink-0">
+        <img src="pessoas_cliente_cadastrado.png" alt="Clientes" class="w-5 h-5 object-contain mix-blend-multiply">
+      </div>
+      <span>Clientes</span>
+    </a>
+    <a href="agenda.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+      <i class="fa-solid fa-calendar-days w-6 text-center text-gray-700 shrink-0"></i>
+      <span>Agenda</span>
+    </a>
+    <a href="mensagens1.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+      <i class="fa-solid fa-comment-dots w-6 text-center text-gray-700 shrink-0"></i>
+      <span>Mensagens</span>
+    </a>
+    <a href="propostas.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+      <div class="w-6 h-6 flex items-center justify-center shrink-0 overflow-hidden">
+        <img src="papel_corretores.png" alt="Propostas" class="w-full h-full object-contain scale-150 mix-blend-multiply">
+      </div>
+      <span>Propostas</span>
+    </a>
+    <a href="configuracoes1.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+      <i class="fa-solid fa-gear w-6 text-center text-gray-700 shrink-0"></i>
+      <span>Configurações</span>
+    </a>
+  </nav>
+
+  <div class="space-y-1 border-t border-gray-200 pt-4 mt-auto shrink-0 text-gray-700">
+    <a href="ajuda1.html" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg hover:text-[#3b1b6c]">
+      <i class="fa-regular fa-circle-question w-6 text-center"></i> Ajuda
+    </a>
+    <a href="#sair" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg hover:text-[#3b1b6c]">
+      <i class="fa-solid fa-arrow-right-from-bracket w-6 text-center"></i> Sair
+    </a>
+  </div>
+
+  <script>
+    (function() {
+      const paginaAtual = window.location.pathname.split('/').pop() || 'corretor.html';
+      document.querySelectorAll('#menuSidebar .nav-item').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === paginaAtual) {
+          link.classList.add('active');
+        }
+      });
+    })();
+  </script>
+</aside>
+
+    <!-- CONTEÚDO AGENDA COM FOTO DE ESCRITÓRIO NO FUNDO -->
+    <main class="flex-1 overflow-y-auto p-6 lg:p-8 bg-cover bg-center relative" style="background-image: url('fundo_escritorio.jpg');">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch min-h-full">
+        
+        <!-- CALENDÁRIO ESQUERDA (ALINHADO NO TOPO COMO NO CANVA) -->
+        <div class="lg:col-span-4 bg-white/95 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-gray-200 self-start">
+          <div class="flex items-center justify-between text-mobi-purple font-bold text-xl mb-4">
+            <button class="hover:bg-purple-50 px-2.5 py-1 rounded transition"><i class="fa-solid fa-chevron-left text-sm"></i></button>
+            <span>Julho 2026</span>
+            <button class="hover:bg-purple-50 px-2.5 py-1 rounded transition"><i class="fa-solid fa-chevron-right text-sm"></i></button>
+          </div>
+
+          <div class="flex justify-between text-xs text-gray-400 border-b border-gray-200 pb-2.5 mb-4">
+            <span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span><span>jun</span>
+            <span class="text-mobi-purple font-bold">jul</span><span>ago</span><span>set</span><span>out</span>
+          </div>
+
+          <div class="grid grid-cols-7 gap-2 text-center text-sm" id="gridCalendario">
+            <div class="py-2.5 text-gray-300 font-medium">28</div>
+            <div class="py-2.5 text-gray-300 font-medium">29</div>
+            <div class="py-2.5 text-gray-300 font-medium">30</div>
+            <div class="py-2.5 text-gray-300 font-medium">31</div>
+            <!-- Dias gerados via JS com #2f1b5b -->
+          </div>
+        </div>
+
+        <!-- TIMELINE DIREITA (VAI ATÉ O FINAL DA TELA COMO NO CANVA) -->
+        <div class="lg:col-span-8 bg-white rounded-2xl shadow-lg border-2 border-purple-400 p-6 lg:p-8 flex flex-col justify-between">
+          
+          <!-- Cabeçalho da Timeline -->
+          <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+            <h2 id="tituloAgenda" class="text-2xl font-bold text-mobi-purple flex items-center gap-3">
+              <i class="fa-solid fa-calendar-days text-2xl"></i> Agenda - Segunda-Feira, 5 Julho 2026
+            </h2>
+            <button onclick="alert('Nova visita agendada')" class="bg-[#e2d3ff] hover:bg-purple-300 text-mobi-purple font-bold text-sm px-5 py-2.5 rounded-xl transition shadow-sm">
+              + Nova Visita
+            </button>
+          </div>
+
+          <!-- Lista de Visitas distribuída até o final (flex-1 + justify-between) -->
+          <div class="relative flex-1 flex flex-col justify-between gap-4">
+            
+            <!-- Linha vertical tracejada conectando os blocos 05 jul -->
+            <div class="absolute left-[26px] top-6 bottom-6 border-l-2 border-dashed border-[#2f1b5b]/50 pointer-events-none z-0"></div>
+
+            <!-- Item 1: 9:00 -->
+            <div class="flex items-center gap-5 relative z-10">
+              <div class="border border-[#2f1b5b] rounded-lg overflow-hidden text-center w-14 shrink-0 bg-white shadow-sm">
+                <div class="bg-[#2f1b5b] text-white text-sm font-bold py-1 dia-badge">05</div>
+                <div class="text-xs text-[#2f1b5b] font-bold py-0.5">jul</div>
+              </div>
+              
+              <div class="w-16 flex flex-col items-center shrink-0">
+                <span class="font-bold text-gray-900 text-base">9:00</span>
+                <div class="h-5 border-l-2 border-dashed border-gray-400 mt-1"></div>
+              </div>
+
+              <div class="flex-1 bg-white border border-gray-200 rounded-2xl px-6 py-4 flex items-center justify-between gap-4 shadow-sm hover:border-purple-300 transition">
+                <div class="min-w-[180px]">
+                  <div class="font-bold text-mobi-purple text-lg flex items-center gap-2">
+                    <i class="fa-solid fa-users text-sm"></i> Ana Silva
+                  </div>
+                  <div class="text-sm text-gray-500 mt-0.5">Av six seven, 500 - Jardins</div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=300" alt="Imóvel" class="w-24 h-16 object-cover rounded-xl shrink-0 shadow-sm">
+                <span class="bg-[#e2d3ff] text-mobi-purple text-sm font-bold px-5 py-2 rounded-lg shrink-0">Confirmada</span>
+              </div>
+            </div>
+
+            <!-- Item 2: 10:30 -->
+            <div class="flex items-center gap-5 relative z-10">
+              <div class="border border-[#2f1b5b] rounded-lg overflow-hidden text-center w-14 shrink-0 bg-white shadow-sm">
+                <div class="bg-[#2f1b5b] text-white text-sm font-bold py-1 dia-badge">05</div>
+                <div class="text-xs text-[#2f1b5b] font-bold py-0.5">jul</div>
+              </div>
+
+              <div class="w-16 flex flex-col items-center shrink-0">
+                <span class="font-bold text-gray-900 text-base">10:30</span>
+                <div class="h-5 border-l-2 border-dashed border-gray-400 mt-1"></div>
+              </div>
+
+              <div class="flex-1 bg-white border border-gray-200 rounded-2xl px-6 py-4 flex items-center justify-between gap-4 shadow-sm hover:border-purple-300 transition">
+                <div class="min-w-[180px]">
+                  <div class="font-bold text-mobi-purple text-lg flex items-center gap-2">
+                    <i class="fa-solid fa-users text-sm"></i> Ana Silva
+                  </div>
+                  <div class="text-sm text-gray-500 mt-0.5">Av Oscar Ferreira, 20 - Jardins</div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=300" alt="Imóvel" class="w-24 h-16 object-cover rounded-xl shrink-0 shadow-sm">
+                <span class="bg-[#e2d3ff] text-mobi-purple text-sm font-bold px-5 py-2 rounded-lg shrink-0">Confirmada</span>
+              </div>
+            </div>
+
+            <!-- Item 3: 12:00 -->
+            <div class="flex items-center gap-5 relative z-10">
+              <div class="border border-[#2f1b5b] rounded-lg overflow-hidden text-center w-14 shrink-0 bg-white shadow-sm">
+                <div class="bg-[#2f1b5b] text-white text-sm font-bold py-1 dia-badge">05</div>
+                <div class="text-xs text-[#2f1b5b] font-bold py-0.5">jul</div>
+              </div>
+
+              <div class="w-16 flex flex-col items-center shrink-0">
+                <span class="font-bold text-gray-900 text-base">12:00</span>
+                <div class="h-5 border-l-2 border-dashed border-gray-400 mt-1"></div>
+              </div>
+
+              <div class="flex-1 bg-white border border-gray-200 rounded-2xl px-6 py-4 flex items-center justify-between gap-4 shadow-sm hover:border-purple-300 transition">
+                <div class="min-w-[180px]">
+                  <div class="font-bold text-mobi-purple text-lg flex items-center gap-2">
+                    <i class="fa-solid fa-users text-sm"></i> Ricardo Souza
+                  </div>
+                  <div class="text-sm text-gray-500 mt-0.5">Alameda Santos, 200 - Jardins</div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=300" alt="Imóvel" class="w-24 h-16 object-cover rounded-xl shrink-0 shadow-sm">
+                <span class="bg-[#e2d3ff] text-mobi-purple text-sm font-bold px-5 py-2 rounded-lg shrink-0">Confirmada</span>
+              </div>
+            </div>
+
+            <!-- Item 4: 14:30 -->
+            <div class="flex items-center gap-5 relative z-10">
+              <div class="border border-[#2f1b5b] rounded-lg overflow-hidden text-center w-14 shrink-0 bg-white shadow-sm">
+                <div class="bg-[#2f1b5b] text-white text-sm font-bold py-1 dia-badge">05</div>
+                <div class="text-xs text-[#2f1b5b] font-bold py-0.5">jul</div>
+              </div>
+
+              <div class="w-16 flex flex-col items-center shrink-0">
+                <span class="font-bold text-gray-900 text-base">14:30</span>
+                <div class="h-5 border-l-2 border-dashed border-gray-400 mt-1"></div>
+              </div>
+
+              <div class="flex-1 bg-white border border-gray-200 rounded-2xl px-6 py-4 flex items-center justify-between gap-4 shadow-sm hover:border-purple-300 transition">
+                <div class="min-w-[180px]">
+                  <div class="font-bold text-mobi-purple text-lg flex items-center gap-2">
+                    <i class="fa-solid fa-users text-sm"></i> Lucas Ferreira
+                  </div>
+                  <div class="text-sm text-gray-500 mt-0.5">Av Ibirapuera, 3000 - Jardins</div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=300" alt="Imóvel" class="w-24 h-16 object-cover rounded-xl shrink-0 shadow-sm">
+                <span class="bg-[#e2d3ff] text-mobi-purple text-sm font-bold px-5 py-2 rounded-lg shrink-0">Confirmada</span>
+              </div>
+            </div>
+
+            <!-- Item 5: 15:30 -->
+            <div class="flex items-center gap-5 relative z-10">
+              <div class="border border-[#2f1b5b] rounded-lg overflow-hidden text-center w-14 shrink-0 bg-white shadow-sm">
+                <div class="bg-[#2f1b5b] text-white text-sm font-bold py-1 dia-badge">05</div>
+                <div class="text-xs text-[#2f1b5b] font-bold py-0.5">jul</div>
+              </div>
+
+              <div class="w-16 flex flex-col items-center shrink-0">
+                <span class="font-bold text-gray-900 text-base">15:30</span>
+              </div>
+
+              <div class="flex-1 bg-white border border-gray-200 rounded-2xl px-6 py-4 flex items-center justify-between gap-4 shadow-sm hover:border-purple-300 transition">
+                <div class="min-w-[180px]">
+                  <div class="font-bold text-mobi-purple text-lg flex items-center gap-2">
+                    <i class="fa-solid fa-users text-sm"></i> Arthur Chaves
+                  </div>
+                  <div class="text-sm text-gray-500 mt-0.5">Av tungtung, 67 - Jardins</div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=300" alt="Imóvel" class="w-24 h-16 object-cover rounded-xl shrink-0 shadow-sm">
+                <span class="bg-[#e2d3ff] text-mobi-purple text-sm font-bold px-5 py-2 rounded-lg shrink-0">Confirmada</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const grid = document.getElementById('gridCalendario');
+    for (let d = 1; d <= 30; d++) {
+      const btn = document.createElement('button');
+      btn.textContent = d;
+      btn.className = 'dia-btn py-2.5 rounded-lg font-bold transition ' + (d === 5 ? 'bg-[#5a38a6] text-white ring-2 ring-purple-300' : 'bg-[#2f1b5b] text-white hover:bg-[#4b2d8c]');
+      btn.onclick = () => {
+        document.querySelectorAll('.dia-btn').forEach(b => b.className = 'dia-btn py-2.5 rounded-lg font-bold transition bg-[#2f1b5b] text-white hover:bg-[#4b2d8c]');
+        btn.className = 'dia-btn py-2.5 rounded-lg font-bold transition bg-[#5a38a6] text-white ring-2 ring-purple-300';
+        const fmt = d < 10 ? '0' + d : d;
+        document.getElementById('tituloAgenda').innerHTML = `<i class="fa-solid fa-calendar-days text-2xl"></i> Agenda - ${d} Julho 2026`;
+        document.querySelectorAll('.dia-badge').forEach(el => el.textContent = fmt);
+      };
+      grid.appendChild(btn);
+    }
+    for (let p = 1; p <= 8; p++) {
+      const div = document.createElement('div');
+      div.className = 'py-2.5 text-gray-300 font-medium';
+      div.textContent = p;
+      grid.appendChild(div);
+    }
+  </script>
+</body>
+</html>

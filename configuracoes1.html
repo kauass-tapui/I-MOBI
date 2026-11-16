@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMOBI - Configurações</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/glacial-indifference');
+    body { font-family: 'Glacial Indifference', sans-serif; background-color: #fafafa; }
+    .bg-mobi-topbar { background-color: #1f123a; }
+    .text-mobi-purple { color: #3b1b6c; }
+
+    .nav-item {
+      background-color: transparent;
+      color: #374151;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .nav-item:not(.active):hover {
+      background-color: #f3ebff;
+      color: #3b1b6c;
+    }
+    .nav-item.active {
+      background-color: #e2d3ff !important;
+      color: #3b1b6c !important;
+      font-weight: 600;
+    }
+
+    .sub-tab.active {
+      background-color: #ece4ff;
+      color: #3b1b6c;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body class="flex flex-col h-screen overflow-hidden text-gray-800">
+
+  <!-- BARRA ROXA DO TOPO -->
+  <header class="w-full bg-mobi-topbar text-white px-8 h-28 flex items-center justify-between border-b border-purple-900/40 z-20 shrink-0">
+    <a href="corretor.html" class="h-full py-4 flex items-center">
+      <img src="width_200.png" alt="IMOBI" class="h-full w-auto object-contain mix-blend-screen filter contrast-125" />
+    </a>
+
+    <div class="flex items-center gap-3.5 cursor-pointer">
+      <div class="w-12 h-12 rounded-full bg-[#a382c9] flex items-center justify-center overflow-hidden">
+        <i class="fa-solid fa-user text-[#1f123a] text-2xl mt-1"></i>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-white font-semibold text-lg leading-snug">Eduardo</span>
+        <span class="text-white text-xs opacity-90">Corretor</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- CORPO PRINCIPAL -->
+  <div class="flex flex-1 overflow-hidden h-[calc(100vh-112px)]">
+
+    <!-- SIDEBAR PRINCIPAL -->
+    <aside class="w-64 bg-[#fafafa] flex flex-col justify-between border-r border-gray-200 p-4 shrink-0 h-full text-gray-700 z-10">
+      <nav class="space-y-1 flex-1" id="menuSidebar">
+        <a href="corretor.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+          <div class="w-6 h-6 flex items-center justify-center shrink-0 overflow-hidden">
+            <img src="casa_pagina_principal-removebg-preview-Photoroom.png" alt="Página inicial" class="w-full h-full object-contain scale-150 mix-blend-multiply">
+          </div>
+          <span>Página inicial</span>
+        </a>
+        <a href="imoveis.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+          <div class="w-6 h-6 flex items-center justify-center shrink-0 overflow-hidden">
+            <img src="casa_imoveis.png" alt="Imóveis" class="w-full h-full object-contain scale-150 mix-blend-multiply">
+          </div>
+          <span>Imóveis</span>
+        </a>
+        <a href="clientes.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+          <div class="w-6 h-6 flex items-center justify-center shrink-0">
+            <img src="pessoas_cliente_cadastrado.png" alt="Clientes" class="w-5 h-5 object-contain mix-blend-multiply">
+          </div>
+          <span>Clientes</span>
+        </a>
+        <a href="agenda.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+          <i class="fa-solid fa-calendar-days w-6 text-center text-gray-700 shrink-0"></i>
+          <span>Agenda</span>
+        </a>
+        <a href="mensagens1.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+          <i class="fa-solid fa-comment-dots w-6 text-center text-gray-700 shrink-0"></i>
+          <span>Mensagens</span>
+        </a>
+        <a href="propostas.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+          <div class="w-6 h-6 flex items-center justify-center shrink-0 overflow-hidden">
+            <img src="papel_corretores.png" alt="Propostas" class="w-full h-full object-contain scale-150 mix-blend-multiply">
+          </div>
+          <span>Propostas</span>
+        </a>
+        <a href="configuracoes1.html" class="nav-item active flex items-center gap-3 px-3 py-2.5 rounded-lg">
+          <i class="fa-solid fa-gear w-6 text-center text-gray-700 shrink-0"></i>
+          <span>Configurações</span>
+        </a>
+      </nav>
+
+      <div class="space-y-1 border-t border-gray-200 pt-4 mt-auto shrink-0 text-gray-700">
+        <a href="ajuda1.html" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg hover:text-[#3b1b6c]">
+          <i class="fa-regular fa-circle-question w-6 text-center"></i> Ajuda
+        </a>
+        <a href="#sair" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg hover:text-[#3b1b6c]">
+          <i class="fa-solid fa-arrow-right-from-bracket w-6 text-center"></i> Sair
+        </a>
+      </div>
+    </aside>
+
+    <!-- ÁREA DE CONFIGURAÇÕES -->
+    <main class="flex-1 overflow-y-auto bg-[#fafafa] p-8 lg:p-10">
+      <div class="max-w-6xl space-y-6">
+
+        <!-- Cabeçalho -->
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-gray-500">SUA CONTA</span>
+          <h1 class="text-4xl font-extrabold text-gray-900 mt-0.5">Olá, Eduardo</h1>
+          <p class="text-sm text-gray-600 mt-1">Revise seus dados profissionais e preferências da sua conta na MOBI.</p>
+        </div>
+
+        <!-- Grid Duas Colunas (Menu Interno + Card Principal) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+          <!-- Menu Lateral Interno -->
+          <div class="lg:col-span-3 bg-white border border-gray-200 rounded-2xl p-3 shadow-sm space-y-1">
+            <button onclick="trocarAba('dados', this)" class="sub-tab active w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-left transition">
+              <i class="fa-regular fa-user w-5 text-center"></i>
+              <span>Dados pessoais</span>
+            </button>
+            <button onclick="trocarAba('preferencias', this)" class="sub-tab w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-gray-700 hover:bg-purple-50 text-left transition">
+              <i class="fa-solid fa-sliders w-5 text-center"></i>
+              <span class="leading-tight">Preferências de atendimento</span>
+            </button>
+            <button onclick="trocarAba('notificacoes', this)" class="sub-tab w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-gray-700 hover:bg-purple-50 text-left transition">
+              <i class="fa-regular fa-bell w-5 text-center"></i>
+              <span>Notificações</span>
+            </button>
+            <button onclick="trocarAba('seguranca', this)" class="sub-tab w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-gray-700 hover:bg-purple-50 text-left transition">
+              <i class="fa-solid fa-shield-halved w-5 text-center"></i>
+              <span>Segurança</span>
+            </button>
+          </div>
+
+          <!-- Card Direito -->
+          <div class="lg:col-span-9 bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+
+            <!-- ABA 1: DADOS PESSOAIS -->
+            <form id="aba-dados" onsubmit="salvarConfiguracoes(event)" class="space-y-6">
+              <!-- Foto do Perfil -->
+              <div class="flex flex-wrap items-center justify-between gap-4 pb-2">
+                <div class="flex items-center gap-4">
+                  <div id="avatarPerfil" class="w-16 h-16 rounded-full bg-[#d4c4f7] text-[#1f123a] font-extrabold text-2xl flex items-center justify-center overflow-hidden shrink-0">
+                    E
+                  </div>
+                  <div>
+                    <h2 class="font-bold text-gray-900 text-lg leading-tight">Foto do perfil</h2>
+                    <p class="text-sm text-gray-500">Use uma foto para passar mais confiança aos seus clientes.</p>
+                  </div>
+                </div>
+                <label class="px-5 py-2 border border-gray-300 rounded-xl text-sm font-bold text-gray-800 hover:bg-gray-50 cursor-pointer transition">
+                  Alterar foto
+                  <input type="file" accept="image/*" class="hidden" onchange="alterarFotoPerfil(this)">
+                </label>
+              </div>
+
+              <!-- Inputs 2 Colunas -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-bold text-gray-800 mb-1.5">Nome completo</label>
+                  <input type="text" id="cfgNome" value="Eduardo Costa" class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm text-gray-800 focus:outline-none focus:border-[#3b1b6c]">
+                </div>
+
+                <div>
+                  <label class="block text-sm font-bold text-gray-800 mb-1.5">E-mail</label>
+                  <input type="email" id="cfgEmail" value="eduardo@mobi.com.br" class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm text-gray-800 focus:outline-none focus:border-[#3b1b6c]">
+                </div>
+
+                <div>
+                  <label class="block text-sm font-bold text-gray-800 mb-1.5">Telefone</label>
+                  <input type="text" id="cfgTelefone" value="(34) 99999-0000" class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm text-gray-800 focus:outline-none focus:border-[#3b1b6c]">
+                </div>
+
+                <div>
+                  <label class="block text-sm font-bold text-gray-800 mb-1.5">CRECI</label>
+                  <input type="text" id="cfgCreci" value="CRECI-MG 45.890" class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm text-gray-800 focus:outline-none focus:border-[#3b1b6c]">
+                </div>
+              </div>
+
+              <!-- Select Especialidade -->
+              <div>
+                <label class="block text-sm font-bold text-gray-800 mb-1.5">Especialidade principal</label>
+                <select id="cfgEspecialidade" class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm text-gray-800 bg-white focus:outline-none focus:border-[#3b1b6c]">
+                  <option value="Venda e Locação Residencial" selected>Venda e Locação Residencial</option>
+                  <option value="Imóveis de Alto Padrão">Imóveis de Alto Padrão</option>
+                  <option value="Imóveis Comerciais e Corporativos">Imóveis Comerciais e Corporativos</option>
+                  <option value="Lançamentos e Plantas">Lançamentos e Plantas</option>
+                </select>
+              </div>
+
+              <!-- Botões Inferiores -->
+              <div class="flex items-center justify-end gap-3 pt-4">
+                <button type="button" onclick="window.location.reload()" class="px-6 py-2.5 border border-gray-300 rounded-xl text-sm font-bold text-gray-800 hover:bg-gray-50 transition">
+                  Cancelar
+                </button>
+                <button type="submit" class="px-6 py-2.5 bg-[#1f123a] hover:bg-[#3b1b6c] text-white rounded-xl text-sm font-bold transition shadow-sm">
+                  Salvar alterações
+                </button>
+              </div>
+            </form>
+
+            <!-- ABA 2: PREFERÊNCIAS DE ATENDIMENTO -->
+            <form id="aba-preferencias" onsubmit="salvarConfiguracoes(event)" class="hidden space-y-6">
+              <h2 class="font-bold text-gray-900 text-lg">Preferências de atendimento</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-bold text-gray-800 mb-1.5">Horário de início das visitas</label>
+                  <input type="time" value="08:30" class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-[#3b1b6c]">
+                </div>
+                <div>
+                  <label class="block text-sm font-bold text-gray-800 mb-1.5">Horário de encerramento</label>
+                  <input type="time" value="18:30" class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-[#3b1b6c]">
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-gray-800 mb-1.5">Regiões de atuação prioritária</label>
+                <input type="text" value="Jardins, Alto da Boa Vista, Vila Mariana, Brooklin" class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-[#3b1b6c]">
+              </div>
+              <div class="flex items-center justify-end gap-3 pt-4">
+                <button type="submit" class="px-6 py-2.5 bg-[#1f123a] hover:bg-[#3b1b6c] text-white rounded-xl text-sm font-bold transition">
+                  Salvar alterações
+                </button>
+              </div>
+            </form>
+
+            <!-- ABA 3: NOTIFICAÇÕES -->
+            <form id="aba-notificacoes" onsubmit="salvarConfiguracoes(event)" class="hidden space-y-5">
+              <h2 class="font-bold text-gray-900 text-lg">Preferências de notificações</h2>
+              <label class="flex items-center justify-between p-4 border border-gray-200 rounded-xl cursor-pointer">
+                <div>
+                  <div class="font-bold text-sm text-gray-800">Novas propostas recebidas</div>
+                  <div class="text-xs text-gray-500">Receber alerta imediato quando um cliente enviar proposta.</div>
+                </div>
+                <input type="checkbox" checked class="w-5 h-5 accent-[#3b1b6c]">
+              </label>
+              <label class="flex items-center justify-between p-4 border border-gray-200 rounded-xl cursor-pointer">
+                <div>
+                  <div class="font-bold text-sm text-gray-800">Lembrete de visitas agendadas</div>
+                  <div class="text-xs text-gray-500">Notificar 1 hora antes do horário marcado na agenda.</div>
+                </div>
+                <input type="checkbox" checked class="w-5 h-5 accent-[#3b1b6c]">
+              </label>
+              <label class="flex items-center justify-between p-4 border border-gray-200 rounded-xl cursor-pointer">
+                <div>
+                  <div class="font-bold text-sm text-gray-800">Atualizações de assinatura de contratos</div>
+                  <div class="text-xs text-gray-500">Avisar quando todas as partes concluírem a assinatura.</div>
+                </div>
+                <input type="checkbox" checked class="w-5 h-5 accent-[#3b1b6c]">
+              </label>
+              <div class="flex items-center justify-end pt-2">
+                <button type="submit" class="px-6 py-2.5 bg-[#1f123a] hover:bg-[#3b1b6c] text-white rounded-xl text-sm font-bold transition">
+                  Salvar alterações
+                </button>
+              </div>
+            </form>
+
+            <!-- ABA 4: SEGURANÇA -->
+            <form id="aba-seguranca" onsubmit="salvarConfiguracoes(event)" class="hidden space-y-6">
+              <h2 class="font-bold text-gray-900 text-lg">Segurança da conta</h2>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-bold text-gray-800 mb-1.5">Senha atual</label>
+                  <input type="password" placeholder="••••••••" class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-[#3b1b6c]">
+                </div>
+                <div>
+                  <label class="block text-sm font-bold text-gray-800 mb-1.5">Nova senha</label>
+                  <input type="password" placeholder="Mínimo 8 caracteres" class="w-full px-4 py-3 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-[#3b1b6c]">
+                </div>
+              </div>
+              <div class="flex items-center justify-end pt-2">
+                <button type="submit" class="px-6 py-2.5 bg-[#1f123a] hover:bg-[#3b1b6c] text-white rounded-xl text-sm font-bold transition">
+                  Atualizar senha
+                </button>
+              </div>
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function trocarAba(aba, btn) {
+      document.querySelectorAll('.sub-tab').forEach(b => {
+        b.classList.remove('active');
+        b.classList.add('text-gray-700');
+      });
+      btn.classList.add('active');
+      btn.classList.remove('text-gray-700');
+
+      ['dados', 'preferencias', 'notificacoes', 'seguranca'].forEach(id => {
+        document.getElementById('aba-' + id).classList.add('hidden');
+      });
+      document.getElementById('aba-' + aba).classList.remove('hidden');
+    }
+
+    function alterarFotoPerfil(input) {
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById('avatarPerfil').innerHTML = `<img src="${e.target.result}" class="w-full h-full object-cover">`;
+        };
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+
+    function salvarConfiguracoes(e) {
+      e.preventDefault();
+      alert('Alterações salvas com sucesso!');
+    }
+  </script>
+</body>
+</html>

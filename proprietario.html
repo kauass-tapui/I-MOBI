@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Painel do proprietário I-MOBI.">
+  <title>I-MOBI | Área do proprietário</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <header class="topo">
+    <a class="logo" href="index.html" aria-label="I-MOBI, página inicial"><img src="logo_imobi.png" alt="I-MOBI Gestão Imobiliária"></a>
+    <a class="perfil" href="configuracoes.html" aria-label="Abrir configurações do perfil de Nicki"><span class="avatar" aria-hidden="true"></span><span>Nicki<br><small>Proprietária</small></span></a>
+  </header>
+
+  <div class="layout">
+    <aside class="menu" aria-label="Menu do proprietário">
+      <a class="item-menu ativo" href="#inicio"><img src="casa_pagina_principal.png" alt=""><span>Visão geral</span></a>
+      <a class="item-menu" href="#meus-imoveis"><img src="casa_imoveis.png" alt=""><span>Meus imóveis</span></a>
+      <a class="item-menu" href="#agenda"><img src="agenda.png" alt=""><span>Agenda</span></a>
+      <a class="item-menu" href="#financeiro"><img src="grafico_relatorios.png" alt=""><span>Financeiro</span></a>
+      <a class="item-menu" href="configuracoes.html"><img src="engrenagem_configuraçoes.png" alt=""><span>Configurações</span></a>
+      <div class="menu-espaco"></div>
+      <a class="item-menu" href="ajuda.html"><img src="interrogaçao_ajuda.png" alt=""><span>Ajuda</span></a>
+      <a class="item-menu sair" href="login.html"><img src="porta_sair.png" alt=""><span>Sair</span></a>
+    </aside>
+
+    <main class="conteudo" id="inicio">
+      <section class="boas-vindas" aria-labelledby="titulo-proprietario">
+        <div><h1 id="titulo-proprietario">Bem-vinda, Nicki!</h1><p>Acompanhe somente os imóveis e as negociações sob sua gestão.</p></div>
+        <p class="contexto">Área do proprietário</p>
+      </section>
+
+      <section class="cards" aria-label="Indicadores dos imóveis de Nicki">
+        <article class="card roxo"><span class="icone-card"><img src="casa_imoveis_disponiveis.png" alt=""></span><div class="informacao-card"><div class="titulo-card">Meus imóveis</div><strong class="numero-card">3</strong><span class="aumento">Todos atualizados</span></div></article>
+        <article class="card azul"><span class="icone-card"><img src="agenda.png" alt=""></span><div class="informacao-card"><div class="titulo-card">Visitas agendadas</div><strong class="numero-card">3</strong><span class="aumento">Próximas visitas na agenda</span></div></article>
+        <article class="card cinza"><span class="icone-card"><img src="papel_contratos_ativos.png" alt=""></span><div class="informacao-card"><div class="titulo-card">Contratos ativos</div><strong class="numero-card">2</strong><span class="aumento alerta">1 imóvel disponível</span></div></article>
+      </section>
+
+      <section class="linha-paineis">
+        <div class="coluna-paineis">
+          <article class="painel" id="meus-imoveis">
+            <div class="titulo-painel"><div><h2>Meus imóveis</h2><p>Disponibilidade e andamento de cada anúncio.</p></div><a class="acao-texto" href="buscar-imoveis.html">Ver anúncios</a></div>
+            <div class="filtro-lista"><a class="ativo" href="#meus-imoveis">Todos</a><a href="#meus-imoveis">Disponíveis</a><a href="#meus-imoveis">Locados</a></div>
+            <div class="tabela-wrap"><table class="tabela"><thead><tr><th>Imóvel</th><th>Tipo</th><th>Situação</th></tr></thead><tbody><tr><td>Casa Jardim América</td><td>Casa</td><td><span class="status ativo">Alugada</span></td></tr><tr><td>Apartamento no Tibery</td><td>Apartamento</td><td><span class="status disponivel">Disponível</span></td></tr><tr><td>Studio Comercial</td><td>Comercial</td><td><span class="status atencao">Atualizar anúncio</span></td></tr></tbody></table></div>
+          </article>
+
+          <article class="painel" id="agenda">
+            <div class="titulo-painel"><div><h2>Próximas atividades</h2><p>Visitas e tratativas dos seus imóveis.</p></div><a class="acao-texto" href="agendamentos.html">Abrir agenda</a></div>
+            <div class="agenda"><div class="evento"><span class="data-evento"><b>09</b>JUL</span><div><strong>Visita ao imóvel</strong><p>Casa Jardim América</p></div><span class="horario">09:00</span></div><div class="evento"><span class="data-evento"><b>14</b>JUL</span><div><strong>Reunião com cliente</strong><p>Apartamento no Tibery</p></div><span class="horario">14:30</span></div><div class="evento"><span class="data-evento"><b>16</b>JUL</span><div><strong>Assinatura de contrato</strong><p>Studio Comercial</p></div><span class="horario">16:00</span></div></div>
+          </article>
+        </div>
+
+        <article class="painel" id="financeiro">
+          <div class="titulo-painel"><div><h2>Financeiro dos meus imóveis</h2><p>Valores recebidos e pendências em acompanhamento.</p></div></div>
+          <div class="tabela-wrap"><table class="tabela"><thead><tr><th>Mês</th><th>Recebido</th><th>Pendente</th></tr></thead><tbody><tr><td>Abril</td><td class="valor recebido">R$12.300,00</td><td>R$0,00</td></tr><tr><td>Maio</td><td class="valor recebido">R$15.100,00</td><td class="valor pendente">R$800,00</td></tr><tr><td>Junho</td><td class="valor recebido">R$14.850,00</td><td class="valor pendente">R$450,00</td></tr></tbody></table></div>
+          <div class="financeiro-total"><div class="metrica"><span>Recebido no período</span><strong>R$42.250,00</strong></div><div class="metrica"><span>Pendente</span><strong>R$1.250,00</strong></div></div>
+          <div class="grafico-barras" aria-label="Resumo de recebimentos"><div class="barra"><span>abr</span><i style="--percentual:76%"></i></div><div class="barra"><span>mai</span><i style="--percentual:92%"></i></div><div class="barra"><span>jun</span><i style="--percentual:89%"></i></div></div>
+          <div class="nota-cobranca"><span aria-hidden="true">ⓘ</span><span><b>Sobre a negociação:</b> a cobrança é considerada na conclusão da operação. Consulte os detalhes com o responsável pelo anúncio.</span></div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

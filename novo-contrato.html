@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMOBI - Novo Contrato para Assinatura</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/glacial-indifference');
+    body { font-family: 'Glacial Indifference', sans-serif; background-color: #fafafa; }
+    .bg-mobi-topbar { background-color: #1f123a; }
+    .text-mobi-purple { color: #3b1b6c; }
+    .nav-item { background-color: transparent; color: #374151; transition: background-color 0.2s ease, color 0.2s ease; }
+    .nav-item:not(.active):hover { background-color: #f3ebff; color: #3b1b6c; }
+    .nav-item.active { background-color: #e2d3ff !important; color: #3b1b6c !important; font-weight: 600; }
+  </style>
+</head>
+<body class="flex flex-col h-screen overflow-hidden text-gray-800">
+
+  <!-- TOPBAR -->
+  <header class="w-full bg-mobi-topbar text-white px-8 h-28 flex items-center justify-between border-b border-purple-900/40 z-20 shrink-0">
+    <a href="corretor.html" class="h-full py-4 flex items-center">
+      <img src="width_200.png" alt="IMOBI" class="h-full w-auto object-contain mix-blend-screen filter contrast-125" />
+    </a>
+    <div class="flex items-center gap-3.5 cursor-pointer">
+      <div class="w-12 h-12 rounded-full bg-[#a382c9] flex items-center justify-center overflow-hidden">
+        <i class="fa-solid fa-user text-[#1f123a] text-2xl mt-1"></i>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-white font-semibold text-lg leading-snug">Eduardo</span>
+        <span class="text-white text-xs opacity-90">Corretor</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex flex-1 overflow-hidden h-[calc(100vh-112px)]">
+    <!-- SIDEBAR -->
+    <aside class="w-64 bg-[#fafafa] flex flex-col justify-between border-r border-gray-200 p-4 shrink-0 h-full text-gray-700 z-10">
+      <nav class="space-y-1 flex-1">
+        <a href="corretor.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+          <div class="w-6 h-6 flex items-center justify-center shrink-0 overflow-hidden">
+            <img src="casa_pagina_principal-removebg-preview-Photoroom.png" alt="Página inicial" class="w-full h-full object-contain scale-150 mix-blend-multiply">
+          </div>
+          <span>Página inicial</span>
+        </a>
+        <a href="imoveis.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+          <div class="w-6 h-6 flex items-center justify-center shrink-0 overflow-hidden">
+            <img src="casa_imoveis.png" alt="Imóveis" class="w-full h-full object-contain scale-150 mix-blend-multiply">
+          </div>
+          <span>Imóveis</span>
+        </a>
+        <a href="clientes.html" class="nav-item active flex items-center gap-3 px-3 py-2.5 rounded-lg">
+          <div class="w-6 h-6 flex items-center justify-center shrink-0">
+            <img src="pessoas_cliente_cadastrado.png" alt="Clientes" class="w-5 h-5 object-contain mix-blend-multiply">
+          </div>
+          <span>Clientes</span>
+        </a>
+        <a href="agenda.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+          <i class="fa-solid fa-calendar-days w-6 text-center text-gray-700 shrink-0"></i>
+          <span>Agenda</span>
+        </a>
+        <a href="mensagens1.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+          <i class="fa-solid fa-comment-dots w-6 text-center text-gray-700 shrink-0"></i>
+          <span>Mensagens</span>
+        </a>
+        <a href="propostas.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+          <div class="w-6 h-6 flex items-center justify-center shrink-0 overflow-hidden">
+            <img src="papel_corretores.png" alt="Propostas" class="w-full h-full object-contain scale-150 mix-blend-multiply">
+          </div>
+          <span>Propostas</span>
+        </a>
+        <a href="configuracoes1.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+          <i class="fa-solid fa-gear w-6 text-center text-gray-700 shrink-0"></i>
+          <span>Configurações</span>
+        </a>
+      </nav>
+      <div class="space-y-1 border-t border-gray-200 pt-4 mt-auto shrink-0 text-gray-700">
+        <a href="ajuda1.html" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg hover:text-[#3b1b6c]">
+          <i class="fa-regular fa-circle-question w-6 text-center"></i> Ajuda
+        </a>
+        <a href="#sair" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg hover:text-[#3b1b6c]">
+          <i class="fa-solid fa-arrow-right-from-bracket w-6 text-center"></i> Sair
+        </a>
+      </div>
+    </aside>
+
+    <!-- CONTEÚDO FORMULÁRIO -->
+    <main class="flex-1 overflow-y-auto bg-[#fafafa] p-8">
+      <div class="max-w-4xl mx-auto space-y-6">
+
+        <!-- Cabeçalho com Voltar -->
+        <div class="flex items-center justify-between">
+          <div>
+            <a href="clientes.html" class="text-xs font-bold text-mobi-purple hover:underline inline-flex items-center gap-1.5 mb-2">
+              <i class="fa-solid fa-arrow-left"></i> Voltar para contratos
+            </a>
+            <h1 class="text-2xl font-extrabold text-mobi-purple">Novo Contrato para Assinatura</h1>
+            <p class="text-sm text-gray-500">Preencha os dados do documento e dos signatários envolvidos.</p>
+          </div>
+        </div>
+
+        <form onsubmit="salvarContrato(event)" class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm space-y-6">
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-bold text-gray-800 mb-1.5">Tipo de Contrato</label>
+              <select id="tipoContrato" class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-[#3b1b6c]">
+                <option value="Contrato de Venda">Contrato de Venda</option>
+                <option value="Contrato de Locação">Contrato de Locação</option>
+                <option value="Contrato de Exclusividade">Contrato de Exclusividade</option>
+                <option value="Termo de Proposta">Termo de Proposta</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm font-bold text-gray-800 mb-1.5">Imóvel Vinculado *</label>
+              <input type="text" id="imovelContrato" required placeholder="Ex: Apartamento Perdizes" class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-[#3b1b6c]">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div>
+              <label class="block text-sm font-bold text-gray-800 mb-1.5">Nome do Cliente Principal *</label>
+              <input type="text" id="nomeCliente" required placeholder="Ex: Fernanda Lima" class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-[#3b1b6c]">
+            </div>
+
+            <div>
+              <label class="block text-sm font-bold text-gray-800 mb-1.5">E-mail para Assinatura Digital *</label>
+              <input type="email" id="emailCliente" required placeholder="cliente@email.com" class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-[#3b1b6c]">
+            </div>
+
+            <div>
+              <label class="block text-sm font-bold text-gray-800 mb-1.5">CPF / CNPJ do Cliente</label>
+              <input type="text" id="cpfCliente" placeholder="000.000.000-00" class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-[#3b1b6c]">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div>
+              <label class="block text-sm font-bold text-gray-800 mb-1.5">Valor Negociado (R$)</label>
+              <input type="text" id="valorContrato" placeholder="R$ 850.000,00" class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-[#3b1b6c]">
+            </div>
+
+            <div>
+              <label class="block text-sm font-bold text-gray-800 mb-1.5">Total de Assinaturas Necessárias</label>
+              <select id="totalAssinaturas" class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-[#3b1b6c]">
+                <option value="2">2 assinaturas (Cliente + Proprietário)</option>
+                <option value="3" selected>3 assinaturas (Cliente + Proprietário + Corretor)</option>
+                <option value="4">4 assinaturas (Com testemunhas)</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-sm font-bold text-gray-800 mb-1.5">Data Limite para Assinatura</label>
+              <input type="date" id="dataLimite" value="2026-11-25" class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-[#3b1b6c]">
+            </div>
+          </div>
+
+          <!-- Upload de PDF -->
+          <div>
+            <label class="block text-sm font-bold text-gray-800 mb-1.5">Arquivo do Contrato (PDF ou DOCX)</label>
+            <label class="border-2 border-dashed border-purple-300 bg-purple-50/40 hover:bg-purple-50 rounded-2xl p-6 flex flex-col items-center justify-center cursor-pointer transition">
+              <i class="fa-solid fa-cloud-arrow-up text-3xl text-mobi-purple mb-2"></i>
+              <span id="nomeArquivoContrato" class="text-sm font-semibold text-mobi-purple">Clique para anexar o arquivo do contrato</span>
+              <span class="text-xs text-gray-400 mt-1">PDF, DOC ou DOCX até 15MB</span>
+              <input type="file" accept=".pdf,.doc,.docx" class="hidden" onchange="document.getElementById('nomeArquivoContrato').textContent = 'Arquivo anexado: ' + this.files[0].name">
+            </label>
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-gray-800 mb-1.5">Observações / Cláusulas Especiais</label>
+            <textarea rows="3" placeholder="Detalhes adicionais para os signatários..." class="w-full px-4 py-2.5 border border-gray-300 rounded-xl text-sm focus:outline-none focus:border-[#3b1b6c]"></textarea>
+          </div>
+
+          <!-- Botões -->
+          <div class="flex items-center justify-end gap-4 pt-4 border-t border-gray-100">
+            <a href="clientes.html" class="px-6 py-2.5 border border-gray-300 rounded-xl text-sm font-bold text-gray-700 hover:bg-gray-50 transition">
+              Cancelar
+            </a>
+            <button type="submit" class="px-6 py-2.5 bg-[#1f123a] hover:bg-[#3b1b6c] text-white rounded-xl text-sm font-bold transition shadow-sm">
+              Criar e Enviar para Assinatura
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function salvarContrato(e) {
+      e.preventDefault();
+      const tipo = document.getElementById('tipoContrato').value;
+      const imovel = document.getElementById('imovelContrato').value.trim();
+      const cliente = document.getElementById('nomeCliente').value.trim();
+      const totalAss = document.getElementById('totalAssinaturas').value;
+
+      const iniciais = cliente.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+      const hoje = new Date();
+      const dataFormatada = String(hoje.getDate()).padStart(2, '0') + '/' + String(hoje.getMonth() + 1).padStart(2, '0') + '/26';
+
+      const novo = {
+        titulo: `${tipo} - ${imovel}`,
+        cliente: cliente,
+        iniciais: iniciais,
+        progresso: `0/${totalAss} assinado`,
+        data: dataFormatada,
+        foto: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=200'
+      };
+
+      const lista = JSON.parse(localStorage.getItem('imobi_contratos') || '[]');
+      lista.unshift(novo);
+      localStorage.setItem('imobi_contratos', JSON.stringify(lista));
+
+      alert('Contrato criado e enviado com sucesso para ' + cliente + '!');
+      window.location.href = 'clientes.html';
+    }
+  </script>
+</body>
+</html>

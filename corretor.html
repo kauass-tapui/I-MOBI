@@ -1,74 +1,367 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Painel do corretor I-MOBI.">
-  <title>I-MOBI | Painel do corretor</title>
-  <link rel="stylesheet" href="dashboard.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMOBI - corretor</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/glacial-indifference');
+    body { font-family: 'Glacial Indifference', sans-serif; background-color: #fafafa; }
+    .bg-mobi-topbar { background-color: #1f123a; }
+    .bg-mobi-sidebar { background-color: #2f2250; }
+    .text-mobi-purple { color: #3b1b6c; }
+
+    .nav-item {
+      background-color: transparent;
+      color: #374151;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .nav-item:not(.active):hover {
+      background-color: #f3ebff;
+      color: #3b1b6c;
+    }
+    .nav-item.active {
+      background-color: #e2d3ff !important;
+      color: #3b1b6c !important;
+      font-weight: 600;
+    }
+    .nav-item.active:hover {
+      background-color: #e2d3ff !important;
+    }
+  </style>
 </head>
-<body>
-  <header class="topo">
-    <a class="logo" href="index.html" aria-label="I-MOBI, página inicial"><img src="logo_imobi.png" alt="I-MOBI Gestão Imobiliária"></a>
-    <a class="perfil" href="perfil.html" aria-label="Abrir perfil de Eduardo"><span class="avatar" aria-hidden="true"></span><span>Eduardo<br><small>Corretor</small></span></a>
+<body class="flex flex-col h-screen overflow-hidden text-gray-800">
+
+   <!-- BARRA ROXA DO TOPO -->
+  <header class="w-full bg-mobi-topbar text-white px-8 h-28 flex items-center justify-between border-b border-purple-900/40 z-20 shrink-0">
+    <a href="corretor.html" class="h-full py-4 flex items-center">
+      <img src="width_200.png" alt="IMOBI" class="h-full w-auto object-contain mix-blend-screen filter contrast-125" />
+    </a>
+
+    <div class="flex items-center gap-3.5 cursor-pointer">
+      <div class="w-12 h-12 rounded-full bg-[#a382c9] flex items-center justify-center overflow-hidden">
+        <i class="fa-solid fa-user text-[#1f123a] text-2xl mt-1"></i>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-white font-semibold text-lg leading-snug">Eduardo</span>
+        <span class="text-white text-xs opacity-90">Corretor</span>
+      </div>
+    </div>
   </header>
+  <!-- CORPO PRINCIPAL -->
+  <div class="flex flex-1 overflow-hidden h-[calc(100vh-112px)]">
 
-  <div class="layout">
-    <aside class="menu" aria-label="Menu do corretor">
-      <a class="item-menu ativo" href="#inicio"><img src="casa_pagina_principal.png" alt=""><span>Visão geral</span></a>
-      <a class="item-menu" href="#carteira"><img src="casa_imoveis.png" alt=""><span>Minha carteira</span></a>
-      <a class="item-menu" href="#leads"><img src="pessoas_clientes.png" alt=""><span>Clientes</span></a>
-      <a class="item-menu" href="#agenda"><img src="agenda.png" alt=""><span>Agenda</span></a>
-      <a class="item-menu" href="mensagens.html"><img src="mensagens.png" alt=""><span>Mensagens</span></a>
-      <a class="item-menu" href="#resultados"><img src="grafico_relatorios.png" alt=""><span>Resultados</span></a>
-      <div class="menu-espaco"></div>
-      <a class="item-menu" href="ajuda.html"><img src="interrogaçao_ajuda.png" alt=""><span>Ajuda</span></a>
-      <a class="item-menu sair" href="login.html"><img src="porta_sair.png" alt=""><span>Sair</span></a>
-    </aside>
+    <!-- SIDEBAR -->
+   <aside class="w-64 bg-[#fafafa] flex flex-col justify-between border-r border-gray-200 p-4 shrink-0 h-full text-gray-700 z-10">
+  <nav class="space-y-1 flex-1" id="menuSidebar">
+    <a href="corretor.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+      <div class="w-6 h-6 flex items-center justify-center shrink-0 overflow-hidden">
+        <img src="casa_pagina_principal-removebg-preview-Photoroom.png" alt="Página inicial" class="w-full h-full object-contain scale-150 mix-blend-multiply">
+      </div>
+      <span>Página inicial</span>
+    </a>
+    <a href="imoveis.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+      <div class="w-6 h-6 flex items-center justify-center shrink-0 overflow-hidden">
+        <img src="casa_imoveis.png" alt="Imóveis" class="w-full h-full object-contain scale-150 mix-blend-multiply">
+      </div>
+      <span>Imóveis</span>
+    </a>
+    <a href="clientes.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+      <div class="w-6 h-6 flex items-center justify-center shrink-0">
+        <img src="pessoas_cliente_cadastrado.png" alt="Clientes" class="w-5 h-5 object-contain mix-blend-multiply">
+      </div>
+      <span>Clientes</span>
+    </a>
+    <a href="agenda.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+      <i class="fa-solid fa-calendar-days w-6 text-center text-gray-700 shrink-0"></i>
+      <span>Agenda</span>
+    </a>
+    <a href="mensagens.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+      <i class="fa-solid fa-comment-dots w-6 text-center text-gray-700 shrink-0"></i>
+      <span>Mensagens</span>
+    </a>
+    <a href="propostas.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+      <div class="w-6 h-6 flex items-center justify-center shrink-0 overflow-hidden">
+        <img src="papel_corretores.png" alt="Propostas" class="w-full h-full object-contain scale-150 mix-blend-multiply">
+      </div>
+      <span>Propostas</span>
+    </a>
+    <a href="configuracoes.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+      <i class="fa-solid fa-gear w-6 text-center text-gray-700 shrink-0"></i>
+      <span>Configurações</span>
+    </a>
+  </nav>
 
-    <main class="conteudo" id="inicio">
-      <section class="boas-vindas" aria-labelledby="titulo-corretor">
-        <div><h1 id="titulo-corretor">Bom dia, Eduardo!</h1><p>Você tem 2 visitas confirmadas e 3 novos contatos para responder hoje.</p></div>
-        <p class="contexto">Área do corretor</p>
-      </section>
+  <div class="space-y-1 border-t border-gray-200 pt-4 mt-auto shrink-0 text-gray-700">
+    <a href="ajuda.html" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg hover:text-[#3b1b6c]">
+      <i class="fa-regular fa-circle-question w-6 text-center"></i> Ajuda
+    </a>
+    <a href="#sair" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg hover:text-[#3b1b6c]">
+      <i class="fa-solid fa-arrow-right-from-bracket w-6 text-center"></i> Sair
+    </a>
+  </div>
 
-      <section class="cards" aria-label="Indicadores da carteira de Eduardo">
-        <article class="card roxo"><span class="icone-card"><img src="casa_imoveis_disponiveis.png" alt=""></span><div class="informacao-card"><div class="titulo-card">Imóveis ativos</div><strong class="numero-card">18</strong><span class="aumento">3 com novos contatos</span></div></article>
-        <article class="card azul"><span class="icone-card"><img src="agenda.png" alt=""></span><div class="informacao-card"><div class="titulo-card">Visitas agendadas</div><strong class="numero-card">5</strong><span class="aumento">2 nos próximos 7 dias</span></div></article>
-        <article class="card cinza"><span class="icone-card"><img src="pessoas_cliente_cadastrados.png" alt=""></span><div class="informacao-card"><div class="titulo-card">Leads em andamento</div><strong class="numero-card">12</strong><span class="aumento alerta">4 aguardam resposta</span></div></article>
-      </section>
+  <script>
+    (function() {
+      const paginaAtual = window.location.pathname.split('/').pop() || 'corretor.html';
+      document.querySelectorAll('#menuSidebar .nav-item').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === paginaAtual) {
+          link.classList.add('active');
+        }
+      });
+    })();
+  </script>
+</aside>
+    <!-- ÁREA DE CONTEÚDO -->
+    <main class="flex-1 overflow-y-auto bg-[#fafafa] p-8 space-y-6">
 
-      <section class="linha-paineis">
-        <div class="coluna-paineis">
-          <article class="painel" id="agenda">
-            <div class="titulo-painel"><div><h2>Agenda de hoje</h2><p>Visitas confirmadas da sua carteira.</p></div><a class="acao-texto" href="agendamentos.html">Abrir agenda</a></div>
-            <div class="agenda"><div class="evento"><span class="data-evento"><b>09</b>JUL</span><div><strong>Apartamento no Centro</strong><p>Daniel Martins · visita confirmada</p></div><span class="horario">09:00</span></div><div class="evento"><span class="data-evento"><b>14</b>JUL</span><div><strong>Casa no Umuarama</strong><p>Raquel Lima · visita confirmada</p></div><span class="horario">14:30</span></div></div>
-          </article>
+      <!-- 1. BANNER DE BOAS-VINDAS -->
+      <div class="w-full rounded-2xl bg-gradient-to-r from-[#21113f] to-[#513581] text-white px-8 py-6 flex flex-wrap items-center justify-between gap-4 shadow-md">
+        <div>
+          <h1 class="text-3xl font-extrabold tracking-tight">Bem-vindo, Eduardo!</h1>
+          <p class="text-sm text-purple-200 mt-0.5">Aqui está um resumo do seu desempenho.</p>
+        </div>
+        <div class="flex items-center gap-2 text-sm text-[#ece7f7] font-medium">
+          <span>Hoje, 14 de novembro de 2026</span>
+          <span class="text-lg">☀️</span>
+        </div>
+      </div>
 
-          <article class="painel" id="leads">
-            <div class="titulo-painel"><div><h2>Clientes que precisam de atenção</h2><p>Priorize os próximos retornos.</p></div><a class="acao-texto" href="mensagens.html">Abrir mensagens</a></div>
-            <div class="atividades"><div class="atividade"><img src="pessoas_cliente_cadastrado.png" alt=""><div><strong>Daniel Martins</strong><p>Busca casa com área de lazer na Morada da Colina.</p></div><a class="acao-texto" href="mensagens.html">Responder</a></div><div class="atividade"><img src="pessoas_cliente_cadastrado.png" alt=""><div><strong>Raquel Lima</strong><p>Solicitou apartamentos com 2 quartos.</p></div><a class="acao-texto" href="mensagens.html">Responder</a></div><div class="atividade"><img src="pessoas_cliente_cadastrado.png" alt=""><div><strong>Novos contatos</strong><p>Há 3 conversas ainda sem retorno.</p></div><a class="acao-texto" href="mensagens.html">Ver</a></div></div>
-          </article>
+      <!-- 2. OS 4 CARDS DE MÉTRICAS COM IMAGENS -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <!-- Card 1: Visitas agendadas -->
+        <a href="agenda.html" class="rounded-2xl p-5 text-white flex items-center gap-4 shadow-sm hover:opacity-95 transition border border-white/10" style="background: linear-gradient(135deg, #24134a 0%, #5540a5 100%);">
+          <div class="w-16 h-16 rounded-full bg-[#7044d1] flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-calendar-days text-2xl text-white"></i>
+          </div>
+          <div class="min-w-0">
+            <div class="text-sm font-semibold text-white/95 truncate">Visitas agendadas</div>
+            <div class="text-4xl font-extrabold leading-none my-1">8</div>
+            <div class="text-xs font-semibold text-[#6ff0dc] flex items-center gap-1">
+              <span>⬆</span> na próxima semana
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 2: Clientes atendidos (usando pessoas_funcionarios_ativos.png) -->
+        <div class="rounded-2xl p-5 text-white flex items-center gap-4 shadow-sm border border-white/10" style="background: linear-gradient(135deg, #14213f 0%, #2f6a86 100%);">
+          <div class="w-16 h-16 rounded-full bg-[#2d7890] flex items-center justify-center shrink-0">
+            <img src="pessoas_funcionarios_ativos.png" alt="Clientes atendidos" class="w-9 h-9 object-contain brightness-200">
+          </div>
+          <div class="min-w-0">
+            <div class="text-sm font-semibold text-white/95 truncate">Clientes atendidos</div>
+            <div class="text-4xl font-extrabold leading-none my-1">32</div>
+            <div class="text-xs font-semibold text-[#6ff0dc] flex items-center gap-1">
+              <span>⬆</span> este mês
+            </div>
+          </div>
         </div>
 
-        <article class="painel" id="carteira">
-          <div class="titulo-painel"><div><h2>Imóveis com mais interesse</h2><p>Priorize os anúncios que geram contatos.</p></div><a class="acao-texto" href="buscar-imoveis.html">Ver carteira</a></div>
-          <div class="tabela-wrap"><table class="tabela"><thead><tr><th>Imóvel</th><th>Interesse</th><th>Ação</th></tr></thead><tbody><tr><td>Casa no Brooklin</td><td>14 visualizações · 3 contatos</td><td><a class="status contato" href="mensagens.html">Responder</a></td></tr><tr><td>Apartamento Alto da Boa Vista</td><td>11 visualizações · 2 contatos</td><td><a class="status contato" href="mensagens.html">Responder</a></td></tr><tr><td>Apartamento no Centro</td><td>8 visualizações · 1 visita</td><td><a class="status ativo" href="agendamentos.html">Ver visita</a></td></tr></tbody></table></div>
-          <div class="nota-cobranca"><span aria-hidden="true">ⓘ</span><span><b>Negociações:</b> acompanhe os dados de cada imóvel e os contatos da sua carteira até a conclusão da operação.</span></div>
-        </article>
-      </section>
+        <!-- Card 3: Imóveis disponíveis (usando predio_imoveis_cadastrados.png) -->
+        <a href="imoveis.html" class="rounded-2xl p-5 text-white flex items-center gap-4 shadow-sm hover:opacity-95 transition border border-white/10" style="background: linear-gradient(135deg, #40364d 0%, #77736d 100%);">
+          <div class="w-16 h-16 rounded-full bg-[#9b8664] flex items-center justify-center shrink-0">
+            <img src="predio_imoveis_cadastrados.png" alt="Imóveis disponíveis" class="w-9 h-9 object-contain brightness-200">
+          </div>
+          <div class="min-w-0">
+            <div class="text-sm font-semibold text-white/95 truncate">Imóveis disponíveis</div>
+            <div class="text-4xl font-extrabold leading-none my-1">24</div>
+            <div class="text-xs font-semibold text-[#6ff0dc] flex items-center gap-1">
+              <span>⬆</span> ativos
+            </div>
+          </div>
+        </a>
 
-      <section class="linha-paineis" id="resultados">
-        <article class="painel">
-          <div class="titulo-painel"><div><h2>Resumo de atendimento</h2><p>Visão do trabalho realizado na carteira.</p></div></div>
-          <div class="resumo-grid"><div class="resumo-item"><img src="pessoas_cliente_cadastrados.png" alt=""><div><span>Clientes em contato</span><strong>12</strong></div></div><div class="resumo-item"><img src="agenda.png" alt=""><div><span>Visitas marcadas</span><strong>5</strong></div></div><div class="resumo-item"><img src="casa_imoveis_disponiveis.png" alt=""><div><span>Anúncios ativos</span><strong>18</strong></div></div><div class="resumo-item"><img src="papel_novo_contrato_assinado.png" alt=""><div><span>Contratos recentes</span><strong>1</strong></div></div></div>
-        </article>
-        <article class="painel">
-          <div class="titulo-painel"><div><h2>Atividades recentes</h2><p>Histórico de movimentações da carteira.</p></div></div>
-          <div class="atividades"><div class="atividade"><img src="papel_novo_contrato_assinado.png" alt=""><div><strong>Visita confirmada</strong><p>Daniel Martins confirmou o horário do imóvel no Centro.</p></div><time>09:10</time></div><div class="atividade"><img src="mensagens.png" alt=""><div><strong>Novo contato</strong><p>Raquel Lima pediu opções de apartamentos.</p></div><time>ontem</time></div><div class="atividade"><img src="dinheiro_pagamento_recebido.png" alt=""><div><strong>Negociação atualizada</strong><p>Andamento registrado para Casa no Brooklin.</p></div><time>ontem</time></div></div>
-        </article>
-      </section>
+        <!-- Card 4: Propostas pendentes (usando papel_corretores.png) -->
+        <a href="propostas.html" class="rounded-2xl p-5 text-white flex items-center gap-4 shadow-sm hover:opacity-95 transition border border-white/10" style="background: linear-gradient(135deg, #2d1646 0%, #6d3a8c 100%);">
+          <div class="w-16 h-16 rounded-full bg-[#8749ad] flex items-center justify-center shrink-0">
+            <img src="papel_corretores.png" alt="Propostas pendentes" class="w-8 h-8 object-contain brightness-0 invert">
+          </div>
+          <div class="min-w-0">
+            <div class="text-sm font-semibold text-white/95 truncate">Propostas pendentes</div>
+            <div class="text-4xl font-extrabold leading-none my-1">3</div>
+            <div class="text-xs font-semibold text-[#6ff0dc] flex items-center gap-1">
+              <span>⬆</span> aguardando retorno
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- 3. PARTE DE BAIXO (GRÁFICO + AGENDA + IMÓVEIS DISPONÍVEIS) -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+        <!-- Bloco Esquerdo (2 colunas) -->
+        <div class="lg:col-span-2 space-y-6">
+
+          <!-- Gráfico de vendas -->
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+
+              <div class="md:col-span-2 space-y-4">
+                <h2 class="text-xl font-bold text-[#3b1b6c]">Desempenho de vendas</h2>
+
+                <div class="flex h-44">
+                  <div class="flex flex-col justify-between text-xs text-gray-500 font-medium pr-3 pb-6 select-none">
+                    <span>50</span><span>40</span><span>30</span><span>20</span><span>10</span><span>0</span>
+                  </div>
+
+                  <div class="flex-1 flex flex-col justify-between relative border-b border-gray-200 pb-1">
+                    <div class="absolute inset-0 flex flex-col justify-between pointer-events-none pb-6">
+                      <div class="border-b border-gray-100 w-full h-0"></div>
+                      <div class="border-b border-gray-100 w-full h-0"></div>
+                      <div class="border-b border-gray-100 w-full h-0"></div>
+                      <div class="border-b border-gray-100 w-full h-0"></div>
+                      <div class="border-b border-gray-100 w-full h-0"></div>
+                      <div class="border-b border-gray-200 w-full h-0"></div>
+                    </div>
+
+                    <div class="flex items-end justify-between h-full pt-2 z-10 px-1">
+                      <div class="flex flex-col items-center gap-2 h-full justify-end flex-1 max-w-[48px]">
+                        <div class="w-full bg-[#634595] rounded-lg h-[90%] transition-all"></div>
+                        <span class="text-xs text-gray-600 font-medium">jan</span>
+                      </div>
+                      <div class="flex flex-col items-center gap-2 h-full justify-end flex-1 max-w-[48px]">
+                        <div class="w-full bg-[#634595] rounded-lg h-[56%] transition-all"></div>
+                        <span class="text-xs text-gray-600 font-medium">fev</span>
+                      </div>
+                      <div class="flex flex-col items-center gap-2 h-full justify-end flex-1 max-w-[48px]">
+                        <div class="w-full bg-[#634595] rounded-lg h-[96%] transition-all"></div>
+                        <span class="text-xs text-gray-600 font-medium">mar</span>
+                      </div>
+                      <div class="flex flex-col items-center gap-2 h-full justify-end flex-1 max-w-[48px]">
+                        <div class="w-full bg-[#634595] rounded-lg h-[54%] transition-all"></div>
+                        <span class="text-xs text-gray-600 font-medium">abr</span>
+                      </div>
+                      <div class="flex flex-col items-center gap-2 h-full justify-end flex-1 max-w-[48px]">
+                        <div class="w-full bg-[#634595] rounded-lg h-[76%] transition-all"></div>
+                        <span class="text-xs text-gray-600 font-medium">mai</span>
+                      </div>
+                      <div class="flex flex-col items-center gap-2 h-full justify-end flex-1 max-w-[48px]">
+                        <div class="w-full bg-[#634595] rounded-lg h-[60%] transition-all"></div>
+                        <span class="text-xs text-gray-600 font-medium">jun</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Divisor e Métricas -->
+              <div class="md:border-l md:border-gray-100 md:pl-6 space-y-6 flex flex-col justify-center">
+                <div>
+                  <span class="text-sm text-gray-600 font-medium">Total de vendas</span>
+                  <div class="flex items-center gap-2 mt-0.5">
+                    <span class="text-2xl font-bold text-[#3b1b6c]">R$1.980.000</span>
+                    <span class="text-xs font-bold text-emerald-500 flex items-center gap-0.5">
+                      <i class="fa-solid fa-arrow-up text-[10px]"></i>32%
+                    </span>
+                  </div>
+                  <span class="text-[11px] text-gray-400 block mt-0.5">em relação ao mês anterior</span>
+                </div>
+
+                <div>
+                  <span class="text-sm text-gray-600 font-medium">Taxa de conversão</span>
+                  <div class="flex items-center gap-2 mt-0.5">
+                    <span class="text-2xl font-bold text-[#3b1b6c]">18%</span>
+                    <span class="text-xs font-bold text-emerald-500 flex items-center gap-0.5">
+                      <i class="fa-solid fa-arrow-up text-[10px]"></i>6%
+                    </span>
+                  </div>
+                  <span class="text-[11px] text-gray-400 block mt-0.5">em relação ao mês anterior</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Agenda Resumida -->
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="text-lg font-bold text-mobi-purple flex items-center gap-2">
+                <i class="fa-solid fa-calendar-days"></i> Agenda
+              </h2>
+              <a href="agenda.html" class="text-xs font-semibold text-mobi-purple hover:underline">Ver agenda completa</a>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <div class="flex items-center gap-3 p-2.5 border border-gray-100 rounded-xl">
+                <div class="bg-[#1f123a] text-white p-2 rounded-lg text-center font-bold min-w-[40px]">
+                  <div>24</div>
+                  <div class="text-[9px] uppercase font-normal">jul</div>
+                </div>
+                <div>
+                  <div class="font-bold text-gray-800">10:00 Casa na Vila Mariana</div>
+                  <div class="text-gray-400">Rua das Flores, 123</div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3 p-2.5 border border-gray-100 rounded-xl">
+                <div class="bg-[#1f123a] text-white p-2 rounded-lg text-center font-bold min-w-[40px]">
+                  <div>24</div>
+                  <div class="text-[9px] uppercase font-normal">jul</div>
+                </div>
+                <div>
+                  <div class="font-bold text-gray-800">15:30 Ap. na Liberdade</div>
+                  <div class="text-gray-400">Rua Américo de Campos, 67</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bloco Direito: Imóveis Disponíveis -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 space-y-4">
+          <div class="flex justify-between items-center">
+            <h2 class="text-lg font-bold text-mobi-purple flex items-center gap-2">
+              <i class="fa-solid fa-city"></i> Imóveis disponíveis
+            </h2>
+            <a href="imoveis.html" class="text-xs font-semibold text-mobi-purple hover:underline">Ver todos</a>
+          </div>
+
+          <div class="border border-gray-100 rounded-xl overflow-hidden shadow-sm">
+            <div class="h-32 bg-gray-200 relative">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500" class="w-full h-full object-cover" alt="Imóvel" />
+            </div>
+            <div class="p-3">
+              <h3 class="font-bold text-mobi-purple text-sm">Apartamento no Alto da Boa Vista</h3>
+              <p class="text-[11px] text-gray-400">Alto da Boa Vista, São Paulo - SP</p>
+              <div class="flex gap-3 text-gray-400 text-[11px] my-2">
+                <span><i class="fa-solid fa-bed"></i> 2</span>
+                <span><i class="fa-solid fa-bath"></i> 2</span>
+                <span><i class="fa-solid fa-ruler-combined"></i> 80m²</span>
+              </div>
+              <div class="font-bold text-mobi-purple text-sm">R$ 780.000</div>
+            </div>
+          </div>
+
+          <div class="border border-gray-100 rounded-xl overflow-hidden shadow-sm">
+            <div class="h-32 bg-gray-200 relative">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=500" class="w-full h-full object-cover" alt="Imóvel" />
+            </div>
+            <div class="p-3">
+              <h3 class="font-bold text-mobi-purple text-sm">Casa no bairro Brasil</h3>
+              <p class="text-[11px] text-gray-400">Bairro Brasil, São Paulo - SP</p>
+              <div class="flex gap-3 text-gray-400 text-[11px] my-2">
+                <span><i class="fa-solid fa-bed"></i> 2</span>
+                <span><i class="fa-solid fa-bath"></i> 2</span>
+                <span><i class="fa-solid fa-ruler-combined"></i> 80m²</span>
+              </div>
+              <div class="font-bold text-mobi-purple text-sm">R$ 1.800.000</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </main>
+
   </div>
+
 </body>
 </html>

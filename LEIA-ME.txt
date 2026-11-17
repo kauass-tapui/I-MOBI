@@ -1,0 +1,12 @@
+# IMOBI — telas administrativas
+
+Abra `index3.html` para entrar no painel. A tela `imoveis2.html` tem paginação funcional e abre `imovel-detalhe2.html` ao selecionar um cartão. Clientes, proprietários e corretores também alternam os registros nas páginas 1, 2 e 3.
+
+Arquivos principais:
+- `index3.html`: página inicial
+- `imoveis2.html`: catálogo de imóveis
+- `imovel-detalhe2.html`: detalhes do imóvel selecionado (sem aba de localização)
+- `clientes2.html`, `proprietarios2.html`, `corretores2.html`: listas paginadas
+- `relatorios2.html`: relatórios
+
+Os estilos usam os CSS fornecidos e as folhas complementares. As imagens de imóveis são exemplos em `assets` e podem ser substituídas pelas fotos definitivas.

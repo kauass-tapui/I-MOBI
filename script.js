@@ -4,7 +4,7 @@ const feedback = document.querySelector('#feedback');
 function painelParaEmail(email) {
   const endereco = email.trim().toLowerCase();
 
-  if (endereco.endsWith('@adm')) return 'adm.html';
+  if (endereco.endsWith('@adm')) return 'index3.html';
   if (endereco.endsWith('@corretor')) return 'corretor.html';
   if (endereco.endsWith('@proprietario')) return 'proprietario.html';
   if (endereco.endsWith('@cliente')) return 'index2.html';

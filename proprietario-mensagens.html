@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMOBI - Mensagens</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="proprietario.css">
+</head>
+<body>
+<!-- HEADER (igual ao do Corretor) -->
+<header class="topbar">
+  <a href="proprietario.html" class="logo"><img src="width_200.png" alt="IMOBI"></a>
+  <div class="user">
+    <div class="av"><i class="fa-solid fa-user"></i></div>
+    <div><b>Carlos</b><small>Proprietário</small></div>
+  </div>
+</header>
+<div class="body">
+<!-- SIDEBAR (mesma estrutura do Corretor) -->
+<aside>
+  <nav><a href="proprietario.html" class="nav-item"><span class="ico "><img src="casa_pagina_principal-removebg-preview-Photoroom.png" alt="Página inicial"></span><span>Página inicial</span></a><a href="proprietario-imoveis.html" class="nav-item"><span class="ico "><img src="casa_imoveis.png" alt="Imóveis"></span><span>Imóveis</span></a><a href="proprietario-clientes.html" class="nav-item"><span class="ico "><img src="pessoas_cliente_cadastrado.png" alt="Clientes"></span><span>Clientes</span></a><a href="proprietario-corretores.html" class="nav-item"><i class="fa-solid fa-user-tie"></i><span>Corretores</span></a><a href="proprietario-mensagens.html" class="nav-item active"><i class="fa-solid fa-comment-dots"></i><span>Mensagens</span></a><a href="proprietario-financeiro.html" class="nav-item"><span class="ico crop"><img src="dinheiro_pagamento_recebido.png" alt="Financeiro"></span><span>Financeiro</span></a><a href="proprietario-relatorios.html" class="nav-item"><i class="fa-solid fa-chart-column"></i><span>Relatórios</span></a><a href="proprietario-configuracoes.html" class="nav-item"><i class="fa-solid fa-gear"></i><span>Configurações</span></a></nav>
+  <div class="nav-low">
+    <a href="ajuda1.html"><i class="fa-regular fa-circle-question"></i><span>Ajuda</span></a>
+    <a href="#sair"><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Sair</span></a>
+  </div>
+</aside>
+<main class="msgs">
+<input class="r" type="radio" name="c" id="c1" checked><input class="r" type="radio" name="c" id="c2"><input class="r" type="radio" name="c" id="c3">
+<input class="r" type="radio" name="t" id="t1" checked><input class="r" type="radio" name="t" id="t2">
+<section class="mlist"><div class="top"><h1>Todas as mensagens</h1><div class="chips"><label for="t1">Todas</label><label for="t2">Não lidas</label></div></div><div class="mscroll"><label for="c1" class="item unread"><div class="av">EC</div><div class="tx"><h3>Eduardo Costa</h3><div class="im">Apartamento no Alto da Boa Vista</div><p>R$ 760.000 à vista. O cliente pede resposta até sexta.</p></div><time>09:18</time></label><label for="c2" class="item"><div class="av">JR</div><div class="tx"><h3>Juliana Rocha</h3><div class="im">Casa na Vila Mariana</div><p>Você: Ótimo, obrigado Juliana!</p></div><time>Ontem</time></label><label for="c3" class="item unread"><div class="av">MT</div><div class="tx"><h3>Marcelo Tavares</h3><div class="im">Apartamento no Osvaldo Rezende</div><p>Posso prorrogar por mais 5 dias?</p></div><time>Ontem</time></label></div></section>
+<section class="chat"><div class="pane p1"><div class="chead"><div class="av">EC</div><div><h2>Eduardo Costa</h2><span>Corretor</span></div></div>
+<div class="ref"><div><h3>Apartamento no Alto da Boa Vista</h3><p>Alto da Boa Vista, São Paulo</p></div><a class="btn" href="proprietario-imoveis.html">Ver imóvel</a></div>
+<div class="hist"><span class="day">Hoje</span><div class="bub in"><p>Bom dia! Recebemos uma nova proposta para o apartamento do Alto da Boa Vista.</p><time>09:10</time></div><div class="bub out"><p>Qual o valor ofertado?</p><time>09:14</time></div><div class="bub in"><p>R$ 760.000 à vista. O cliente pede resposta até sexta.</p><time>09:18</time></div></div>
+<div class="send"><input type="text" placeholder="Digite sua mensagem..."><span><i class="fa-solid fa-paper-plane"></i></span></div></div><div class="pane p2"><div class="chead"><div class="av">JR</div><div><h2>Juliana Rocha</h2><span>Corretor</span></div></div>
+<div class="ref"><div><h3>Casa na Vila Mariana</h3><p>Vila Mariana, São Paulo</p></div><a class="btn" href="proprietario-imoveis.html">Ver imóvel</a></div>
+<div class="hist"><span class="day">Ontem</span><div class="bub in"><p>O contrato de locação já foi assinado por todas as partes.</p><time>15:02</time></div><div class="bub out"><p>Ótimo, obrigado Juliana!</p><time>15:10</time></div></div>
+<div class="send"><input type="text" placeholder="Digite sua mensagem..."><span><i class="fa-solid fa-paper-plane"></i></span></div></div><div class="pane p3"><div class="chead"><div class="av">MT</div><div><h2>Marcelo Tavares</h2><span>Corretor</span></div></div>
+<div class="ref"><div><h3>Apartamento no Osvaldo Rezende</h3><p>Osvaldo Rezende, Uberlândia</p></div><a class="btn" href="proprietario-imoveis.html">Ver imóvel</a></div>
+<div class="hist"><span class="day">Ontem</span><div class="bub in"><p>A reserva do apartamento vence amanhã.</p><time>11:20</time></div><div class="bub in"><p>Posso prorrogar por mais 5 dias?</p><time>11:21</time></div></div>
+<div class="send"><input type="text" placeholder="Digite sua mensagem..."><span><i class="fa-solid fa-paper-plane"></i></span></div></div></section>
+</main>
+</div>
+</body>
+</html>

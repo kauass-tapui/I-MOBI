@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMOBI - Clientes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/glacial-indifference');
+    body { font-family: 'Glacial Indifference', sans-serif; background-color: #fafafa; }
+    .bg-mobi-topbar { background-color: #1f123a; }
+    .text-mobi-purple { color: #3b1b6c; }
+
+    .nav-item {
+      background-color: transparent;
+      color: #374151;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .nav-item:not(.active):hover {
+      background-color: #f3ebff;
+      color: #3b1b6c;
+    }
+    .nav-item.active {
+      background-color: #e2d3ff !important;
+      color: #3b1b6c !important;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="flex flex-col h-screen overflow-hidden text-gray-800">
+
+  <!-- BARRA ROXA DO TOPO -->
+  <header class="w-full bg-mobi-topbar text-white px-8 h-28 flex items-center justify-between border-b border-purple-900/40 z-20 shrink-0">
+    <a href="corretor.html" class="h-full py-4 flex items-center">
+      <img src="width_200.png" alt="IMOBI" class="h-full w-auto object-contain mix-blend-screen filter contrast-125" />
+    </a>
+      <div class="flex flex-col">
+        <span class="text-white font-semibold text-lg leading-snug">Eduardo</span>
+        <span class="text-white text-xs opacity-90">Corretor</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- CORPO PRINCIPAL -->
+  <div class="flex flex-1 overflow-hidden h-[calc(100vh-112px)]">
+
+    <!-- SIDEBAR -->
+    <aside class="w-64 bg-[#fafafa] flex flex-col justify-between border-r border-gray-200 p-4 shrink-0 h-full text-gray-700 z-10">
+      <nav class="space-y-1 flex-1" id="menuSidebar">
+        <a href="corretor.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+          <div class="w-6 h-6 flex items-center justify-center shrink-0 overflow-hidden">
+            <img src="casa_pagina_principal-removebg-preview-Photoroom.png" alt="Página inicial" class="w-full h-full object-contain scale-150 mix-blend-multiply">
+          </div>
+          <span>Página inicial</span>
+        </a>
+        <a href="imoveis.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+          <div class="w-6 h-6 flex items-center justify-center shrink-0 overflow-hidden">
+            <img src="casa_imoveis.png" alt="Imóveis" class="w-full h-full object-contain scale-150 mix-blend-multiply">
+          </div>
+          <span>Imóveis</span>
+        </a>
+        <a href="clientes.html" class="nav-item active flex items-center gap-3 px-3 py-2.5 rounded-lg">
+          <div class="w-6 h-6 flex items-center justify-center shrink-0">
+            <img src="pessoas_cliente_cadastrado.png" alt="Clientes" class="w-5 h-5 object-contain mix-blend-multiply">
+          </div>
+          <span>Clientes</span>
+        </a>
+        <a href="agenda.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+          <i class="fa-solid fa-calendar-days w-6 text-center text-gray-700 shrink-0"></i>
+          <span>Agenda</span>
+        </a>
+        <a href="mensagens1.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+          <i class="fa-solid fa-comment-dots w-6 text-center text-gray-700 shrink-0"></i>
+          <span>Mensagens</span>
+        </a>
+        <a href="propostas.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+          <div class="w-6 h-6 flex items-center justify-center shrink-0 overflow-hidden">
+            <img src="papel_corretores.png" alt="Propostas" class="w-full h-full object-contain scale-150 mix-blend-multiply">
+          </div>
+          <span>Propostas</span>
+        </a>
+        <a href="configuracoes1.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+          <i class="fa-solid fa-gear w-6 text-center text-gray-700 shrink-0"></i>
+          <span>Configurações</span>
+        </a>
+      </nav>
+
+      <div class="space-y-1 border-t border-gray-200 pt-4 mt-auto shrink-0 text-gray-700">
+        <a href="ajuda1.html" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg hover:text-[#3b1b6c]">
+          <i class="fa-regular fa-circle-question w-6 text-center"></i> Ajuda
+        </a>
+        <a href="#sair" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg hover:text-[#3b1b6c]">
+          <i class="fa-solid fa-arrow-right-from-bracket w-6 text-center"></i> Sair
+        </a>
+      </div>
+
+      <script>
+        (function() {
+          const paginaAtual = window.location.pathname.split('/').pop() || 'clientes.html';
+          document.querySelectorAll('#menuSidebar .nav-item').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === paginaAtual) {
+              link.classList.add('active');
+            }
+          });
+        })();
+      </script>
+    </aside>
+
+    <!-- ÁREA DE CONTEÚDO -->
+    <main class="flex-1 overflow-y-auto bg-white p-8 space-y-6">
+
+      <!-- Título -->
+      <h1 class="text-2xl font-extrabold text-mobi-purple tracking-tight">
+        Assinatura de Contratos de Clientes
+      </h1>
+
+      <!-- Barra de Progresso das Etapas -->
+      <div class="w-full rounded-2xl bg-gradient-to-r from-[#21113f] to-[#4e2a84] px-10 py-6 text-white shadow-md">
+        <div class="relative flex items-start justify-between">
+          <!-- Linha conectora -->
+          <div class="absolute top-3 left-8 right-8 h-0.5 bg-[#7a64b8]"></div>
+
+          <!-- Etapa 1 -->
+          <div class="relative z-10 flex flex-col items-center text-center w-36">
+            <div class="w-6 h-6 rounded-full bg-[#7465c2] border-2 border-[#a799ea] mb-2"></div>
+            <span class="text-xs font-medium leading-tight">Preparação do<br>documento</span>
+          </div>
+
+          <!-- Etapa 2 -->
+          <div class="relative z-10 flex flex-col items-center text-center w-36">
+            <div class="w-6 h-6 rounded-full bg-[#7465c2] border-2 border-[#a799ea] mb-2"></div>
+            <span class="text-xs font-medium leading-tight">Envia para<br>assinaturas</span>
+          </div>
+
+          <!-- Etapa 3 -->
+          <div class="relative z-10 flex flex-col items-center text-center w-36">
+            <div class="w-6 h-6 rounded-full bg-[#7465c2] border-2 border-[#a799ea] mb-2"></div>
+            <span class="text-xs font-medium leading-tight mt-1">Assinatura em curso</span>
+          </div>
+
+          <!-- Etapa 4 -->
+          <div class="relative z-10 flex flex-col items-center text-center w-36">
+            <div class="w-6 h-6 rounded-full bg-[#7465c2] border-2 border-[#a799ea] mb-2"></div>
+            <span class="text-xs font-medium leading-tight">Concluído e<br>arquivado</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabela de Contratos -->
+      <div class="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b border-gray-200 text-sm font-bold text-gray-900">
+                <th class="py-4 px-5">Contrato</th>
+                <th class="py-4 px-3">Imóvel</th>
+                <th class="py-4 px-4 text-center">Clientes<br>envolvidos</th>
+                <th class="py-4 px-4 text-center">Progresso</th>
+                <th class="py-4 px-4 text-center">Data de envio</th>
+                <th class="py-4 px-5 text-right">
+                  <div class="flex items-center justify-end gap-4">
+                    <span>Ações</span>
+    <a href="novo-contrato.html" class="inline-block bg-[#3b1b6c] hover:bg-[#4e268c] text-white text-xs font-semibold px-4 py-2 rounded-xl leading-tight text-center transition shadow-sm">
+      + Novo Contrato<br>Para assinatura
+    </a>
+  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="tabelaContratos" class="divide-y divide-gray-200 text-sm">
+
+              <!-- Linha 1 -->
+              <tr class="hover:bg-purple-50/30 transition">
+                <td class="py-4 px-5">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-10 flex items-center justify-center shrink-0">
+                      <img src="papel_corretores.png" alt="Documento" class="w-8 h-8 object-contain mix-blend-multiply opacity-75">
+                    </div>
+                    <div class="font-medium text-gray-800 leading-snug">
+                      Contrato de Venda -<br>Apartamento Perdizes
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-3">
+                  <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=200" alt="Apartamento Perdizes" class="w-16 h-14 object-cover rounded-xl shadow-sm">
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <div class="inline-flex flex-col items-center">
+                    <div class="w-9 h-9 rounded-full bg-[#e2d3ff] text-mobi-purple font-bold text-xs flex items-center justify-center">FL</div>
+                    <span class="text-xs text-gray-700 mt-1">Fernanda Lima</span>
+                  </div>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <div class="inline-flex flex-col items-center">
+                    <span class="text-xs font-bold text-gray-900 mb-1">2/3 assinado</span>
+                    <div class="w-24 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                      <div class="bg-[#5b3b9c] h-full w-2/3 rounded-full"></div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <span class="inline-block bg-[#c6a7fa] text-white font-semibold text-xs px-4 py-1.5 rounded-lg">21/10/26</span>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="flex items-center justify-end gap-5 text-center text-[10px] text-gray-600">
+                    <button onclick="alert('Proposta reenviada para Fernanda Lima!')" class="flex flex-col items-center hover:text-mobi-purple transition">
+                      <i class="fa-solid fa-rotate-right text-base mb-1 text-gray-500"></i>
+                      <span class="leading-tight">reenviar<br>proposta</span>
+                    </button>
+                    <button onclick="alert('Abrindo PDF: Contrato de Venda - Apartamento Perdizes')" class="flex flex-col items-center hover:text-mobi-purple transition">
+                      <i class="fa-regular fa-file-lines text-base mb-1 text-gray-500"></i>
+                      <span class="leading-tight">ver<br>documento</span>
+                    </button>
+                    <button onclick="recusarContrato(this)" class="flex flex-col items-center hover:text-red-600 transition">
+                      <i class="fa-solid fa-xmark text-base mb-1 text-gray-500"></i>
+                      <span class="leading-tight mt-0.5">Recusar</span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Linha 2 -->
+              <tr class="hover:bg-purple-50/30 transition">
+                <td class="py-4 px-5">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-10 flex items-center justify-center shrink-0">
+                      <img src="papel_corretores.png" alt="Documento" class="w-8 h-8 object-contain mix-blend-multiply opacity-75">
+                    </div>
+                    <div class="font-medium text-gray-800 leading-snug">
+                      Contrato de Locação<br>- Casa Vila Mariana
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-3">
+                  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=200" alt="Casa Vila Mariana" class="w-16 h-14 object-cover rounded-xl shadow-sm">
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <div class="inline-flex flex-col items-center">
+                    <div class="w-9 h-9 rounded-full bg-[#e2d3ff] text-mobi-purple font-bold text-xs flex items-center justify-center">RD</div>
+                    <span class="text-xs text-gray-700 mt-1">Roberto Dias</span>
+                  </div>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <div class="inline-flex flex-col items-center">
+                    <span class="text-xs font-bold text-gray-900 mb-1">2/3 assinado</span>
+                    <div class="w-24 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                      <div class="bg-[#5b3b9c] h-full w-2/3 rounded-full"></div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <span class="inline-block bg-[#c6a7fa] text-white font-semibold text-xs px-4 py-1.5 rounded-lg">12/10/26</span>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="flex items-center justify-end gap-5 text-center text-[10px] text-gray-600">
+                    <button onclick="alert('Proposta reenviada para Roberto Dias!')" class="flex flex-col items-center hover:text-mobi-purple transition">
+                      <i class="fa-solid fa-rotate-right text-base mb-1 text-gray-500"></i>
+                      <span class="leading-tight">reenviar<br>proposta</span>
+                    </button>
+                    <button onclick="alert('Abrindo PDF: Contrato de Locação - Casa Vila Mariana')" class="flex flex-col items-center hover:text-mobi-purple transition">
+                      <i class="fa-regular fa-file-lines text-base mb-1 text-gray-500"></i>
+                      <span class="leading-tight">ver<br>documento</span>
+                    </button>
+                    <button onclick="recusarContrato(this)" class="flex flex-col items-center hover:text-red-600 transition">
+                      <i class="fa-solid fa-xmark text-base mb-1 text-gray-500"></i>
+                      <span class="leading-tight mt-0.5">Recusar</span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Linha 3 -->
+              <tr class="hover:bg-purple-50/30 transition">
+                <td class="py-4 px-5">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-10 flex items-center justify-center shrink-0">
+                      <img src="papel_corretores.png" alt="Documento" class="w-8 h-8 object-contain mix-blend-multiply opacity-75">
+                    </div>
+                    <div class="font-medium text-gray-800 leading-snug">
+                      Contrato de Venda -<br>Ap. Alto da Boa Vista
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-3">
+                  <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=200" alt="Ap. Alto da Boa Vista" class="w-16 h-14 object-cover rounded-xl shadow-sm">
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <div class="inline-flex flex-col items-center">
+                    <div class="w-9 h-9 rounded-full bg-[#e2d3ff] text-mobi-purple font-bold text-xs flex items-center justify-center">MO</div>
+                    <span class="text-xs text-gray-700 mt-1">Maria Oliveira</span>
+                  </div>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <div class="inline-flex flex-col items-center">
+                    <span class="text-xs font-bold text-gray-900 mb-1">1/3 assinado</span>
+                    <div class="w-24 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                      <div class="bg-[#5b3b9c] h-full w-1/3 rounded-full"></div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <span class="inline-block bg-[#c6a7fa] text-white font-semibold text-xs px-4 py-1.5 rounded-lg">6/10/26</span>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="flex items-center justify-end gap-5 text-center text-[10px] text-gray-600">
+                    <button onclick="alert('Proposta reenviada para Maria Oliveira!')" class="flex flex-col items-center hover:text-mobi-purple transition">
+                      <i class="fa-solid fa-rotate-right text-base mb-1 text-gray-500"></i>
+                      <span class="leading-tight">reenviar<br>proposta</span>
+                    </button>
+                    <button onclick="alert('Abrindo PDF: Contrato de Venda - Ap. Alto da Boa Vista')" class="flex flex-col items-center hover:text-mobi-purple transition">
+                      <i class="fa-regular fa-file-lines text-base mb-1 text-gray-500"></i>
+                      <span class="leading-tight">ver<br>documento</span>
+                    </button>
+                    <button onclick="recusarContrato(this)" class="flex flex-col items-center hover:text-red-600 transition">
+                      <i class="fa-solid fa-xmark text-base mb-1 text-gray-500"></i>
+                      <span class="leading-tight mt-0.5">Recusar</span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Linha 4 -->
+              <tr class="hover:bg-purple-50/30 transition">
+                <td class="py-4 px-5">
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-10 flex items-center justify-center shrink-0">
+                      <img src="papel_corretores.png" alt="Documento" class="w-8 h-8 object-contain mix-blend-multiply opacity-75">
+                    </div>
+                    <div class="font-medium text-gray-800 leading-snug">
+                      Contrato de Exclusividade<br>- Casa Brooklin
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-3">
+                  <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=200" alt="Casa Brooklin" class="w-16 h-14 object-cover rounded-xl shadow-sm">
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <div class="inline-flex flex-col items-center">
+                    <div class="w-9 h-9 rounded-full bg-[#e2d3ff] text-mobi-purple font-bold text-xs flex items-center justify-center">CM</div>
+                    <span class="text-xs text-gray-700 mt-1">Carlos Mendes</span>
+                  </div>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <div class="inline-flex flex-col items-center">
+                    <span class="text-xs font-bold text-gray-900 mb-1">2/3 assinado</span>
+                    <div class="w-24 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                      <div class="bg-[#5b3b9c] h-full w-2/3 rounded-full"></div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-4 px-4 text-center">
+                  <span class="inline-block bg-[#c6a7fa] text-white font-semibold text-xs px-4 py-1.5 rounded-lg">2/10/26</span>
+                </td>
+                <td class="py-4 px-5">
+                  <div class="flex items-center justify-end gap-5 text-center text-[10px] text-gray-600">
+                    <button onclick="alert('Proposta reenviada para Carlos Mendes!')" class="flex flex-col items-center hover:text-mobi-purple transition">
+                      <i class="fa-solid fa-rotate-right text-base mb-1 text-gray-500"></i>
+                      <span class="leading-tight">reenviar<br>proposta</span>
+                    </button>
+                    <button onclick="alert('Abrindo PDF: Contrato de Exclusividade - Casa Brooklin')" class="flex flex-col items-center hover:text-mobi-purple transition">
+                      <i class="fa-regular fa-file-lines text-base mb-1 text-gray-500"></i>
+                      <span class="leading-tight">ver<br>documento</span>
+                    </button>
+                    <button onclick="recusarContrato(this)" class="flex flex-col items-center hover:text-red-600 transition">
+                      <i class="fa-solid fa-xmark text-base mb-1 text-gray-500"></i>
+                      <span class="leading-tight mt-0.5">Recusar</span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script>
+    function recusarContrato(btn) {
+      if (confirm('Deseja realmente recusar e remover este contrato da lista?')) {
+        btn.closest('tr').remove();
+      }
+    }
+
+    function abrirModalNovoContrato() {
+      const titulo = prompt('Título do contrato (ex: Contrato de Venda - Casa Jardins):');
+      if (!titulo) return;
+      const cliente = prompt('Nome do cliente (ex: Ana Souza):') || 'Novo Cliente';
+      const iniciais = cliente.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+
+      const tbody = document.getElementById('tabelaContratos');
+      const tr = document.createElement('tr');
+      tr.className = 'hover:bg-purple-50/30 transition';
+      tr.innerHTML = `
+        <td class="py-4 px-5">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-10 flex items-center justify-center shrink-0">
+              <img src="papel_corretores.png" alt="Documento" class="w-8 h-8 object-contain mix-blend-multiply opacity-75">
+            </div>
+            <div class="font-medium text-gray-800 leading-snug">${titulo}</div>
+          </div>
+        </td>
+        <td class="py-4 px-3">
+          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=200" alt="Imóvel" class="w-16 h-14 object-cover rounded-xl shadow-sm">
+        </td>
+        <td class="py-4 px-4 text-center">
+          <div class="inline-flex flex-col items-center">
+            <div class="w-9 h-9 rounded-full bg-[#e2d3ff] text-mobi-purple font-bold text-xs flex items-center justify-center">${iniciais}</div>
+            <span class="text-xs text-gray-700 mt-1">${cliente}</span>
+          </div>
+        </td>
+        <td class="py-4 px-4 text-center">
+          <div class="inline-flex flex-col items-center">
+            <span class="text-xs font-bold text-gray-900 mb-1">0/3 assinado</span>
+            <div class="w-24 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+              <div class="bg-[#5b3b9c] h-full w-1/12 rounded-full"></div>
+            </div>
+          </div>
+        </td>
+        <td class="py-4 px-4 text-center">
+          <span class="inline-block bg-[#c6a7fa] text-white font-semibold text-xs px-4 py-1.5 rounded-lg">15/11/26</span>
+        </td>
+        <td class="py-4 px-5">
+          <div class="flex items-center justify-end gap-5 text-center text-[10px] text-gray-600">
+            <button onclick="alert('Proposta reenviada para ${cliente}!')" class="flex flex-col items-center hover:text-mobi-purple transition">
+              <i class="fa-solid fa-rotate-right text-base mb-1 text-gray-500"></i>
+              <span class="leading-tight">reenviar<br>proposta</span>
+            </button>
+            <button onclick="alert('Abrindo PDF: ${titulo}')" class="flex flex-col items-center hover:text-mobi-purple transition">
+              <i class="fa-regular fa-file-lines text-base mb-1 text-gray-500"></i>
+              <span class="leading-tight">ver<br>documento</span>
+            </button>
+            <button onclick="recusarContrato(this)" class="flex flex-col items-center hover:text-red-600 transition">
+              <i class="fa-solid fa-xmark text-base mb-1 text-gray-500"></i>
+              <span class="leading-tight mt-0.5">Recusar</span>
+            </button>
+          </div>
+        </td>
+      `;
+      tbody.prepend(tr);
+    }
+  </script>
+</body>
+</html>

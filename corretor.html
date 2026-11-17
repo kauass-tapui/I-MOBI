@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMOBI - corretor</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/glacial-indifference');
+    body { font-family: 'Glacial Indifference', sans-serif; background-color: #fafafa; }
+    .bg-mobi-topbar { background-color: #1f123a; }
+    .bg-mobi-sidebar { background-color: #2f2250; }
+    .text-mobi-purple { color: #3b1b6c; }
+
+    .nav-item {
+      background-color: transparent;
+      color: #374151;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    .nav-item:not(.active):hover {
+      background-color: #f3ebff;
+      color: #3b1b6c;
+    }
+    .nav-item.active {
+      background-color: #e2d3ff !important;
+      color: #3b1b6c !important;
+      font-weight: 600;
+    }
+    .nav-item.active:hover {
+      background-color: #e2d3ff !important;
+    }
+  </style>
+</head>
+<body class="flex flex-col h-screen overflow-hidden text-gray-800">
+
+   <!-- BARRA ROXA DO TOPO -->
+  <header class="w-full bg-mobi-topbar text-white px-8 h-28 flex items-center justify-between border-b border-purple-900/40 z-20 shrink-0">
+    <a href="corretor.html" class="h-full py-4 flex items-center">
+      <img src="width_200.png" alt="IMOBI" class="h-full w-auto object-contain mix-blend-screen filter contrast-125" />
+    </a>
+
+    <div class="flex items-center gap-3.5 cursor-pointer">
+      <div class="w-12 h-12 rounded-full bg-[#a382c9] flex items-center justify-center overflow-hidden">
+        <i class="fa-solid fa-user text-[#1f123a] text-2xl mt-1"></i>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-white font-semibold text-lg leading-snug">Eduardo</span>
+        <span class="text-white text-xs opacity-90">Corretor</span>
+      </div>
+    </div>
+  </header>
+  <!-- CORPO PRINCIPAL -->
+  <div class="flex flex-1 overflow-hidden h-[calc(100vh-112px)]">
+
+    <!-- SIDEBAR -->
+   <aside class="w-64 bg-[#fafafa] flex flex-col justify-between border-r border-gray-200 p-4 shrink-0 h-full text-gray-700 z-10">
+  <nav class="space-y-1 flex-1" id="menuSidebar">
+    <a href="corretor.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+      <div class="w-6 h-6 flex items-center justify-center shrink-0 overflow-hidden">
+        <img src="casa_pagina_principal-removebg-preview-Photoroom.png" alt="Página inicial" class="w-full h-full object-contain scale-150 mix-blend-multiply">
+      </div>
+      <span>Página inicial</span>
+    </a>
+    <a href="imoveis.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+      <div class="w-6 h-6 flex items-center justify-center shrink-0 overflow-hidden">
+        <img src="casa_imoveis.png" alt="Imóveis" class="w-full h-full object-contain scale-150 mix-blend-multiply">
+      </div>
+      <span>Imóveis</span>
+    </a>
+    <a href="clientes.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+      <div class="w-6 h-6 flex items-center justify-center shrink-0">
+        <img src="pessoas_cliente_cadastrado.png" alt="Clientes" class="w-5 h-5 object-contain mix-blend-multiply">
+      </div>
+      <span>Clientes</span>
+    </a>
+    <a href="agenda.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+      <i class="fa-solid fa-calendar-days w-6 text-center text-gray-700 shrink-0"></i>
+      <span>Agenda</span>
+    </a>
+    <a href="mensagens1.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+      <i class="fa-solid fa-comment-dots w-6 text-center text-gray-700 shrink-0"></i>
+      <span>Mensagens</span>
+    </a>
+    <a href="propostas.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+      <div class="w-6 h-6 flex items-center justify-center shrink-0 overflow-hidden">
+        <img src="papel_corretores.png" alt="Propostas" class="w-full h-full object-contain scale-150 mix-blend-multiply">
+      </div>
+      <span>Propostas</span>
+    </a>
+    <a href="configuracoes1.html" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg">
+      <i class="fa-solid fa-gear w-6 text-center text-gray-700 shrink-0"></i>
+      <span>Configurações</span>
+    </a>
+  </nav>
+
+  <div class="space-y-1 border-t border-gray-200 pt-4 mt-auto shrink-0 text-gray-700">
+    <a href="ajuda1.html" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg hover:text-[#3b1b6c]">
+      <i class="fa-regular fa-circle-question w-6 text-center"></i> Ajuda
+    </a>
+    <a href="#sair" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg hover:text-[#3b1b6c]">
+      <i class="fa-solid fa-arrow-right-from-bracket w-6 text-center"></i> Sair
+    </a>
+  </div>
+
+  <script>
+    (function() {
+      const paginaAtual = window.location.pathname.split('/').pop() || 'corretor.html';
+      document.querySelectorAll('#menuSidebar .nav-item').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === paginaAtual) {
+          link.classList.add('active');
+        }
+      });
+    })();
+  </script>
+</aside>
+    <!-- ÁREA DE CONTEÚDO -->
+    <main class="flex-1 overflow-y-auto bg-[#fafafa] p-8 space-y-6">
+
+      <!-- 1. BANNER DE BOAS-VINDAS -->
+      <div class="w-full rounded-2xl bg-gradient-to-r from-[#21113f] to-[#513581] text-white px-8 py-6 flex flex-wrap items-center justify-between gap-4 shadow-md">
+        <div>
+          <h1 class="text-3xl font-extrabold tracking-tight">Bem-vindo, Eduardo!</h1>
+          <p class="text-sm text-purple-200 mt-0.5">Aqui está um resumo do seu desempenho.</p>
+        </div>
+        <div class="flex items-center gap-2 text-sm text-[#ece7f7] font-medium">
+          <span>Hoje, 14 de novembro de 2026</span>
+          <span class="text-lg">☀️</span>
+        </div>
+      </div>
+
+      <!-- 2. OS 4 CARDS DE MÉTRICAS COM IMAGENS -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <!-- Card 1: Visitas agendadas -->
+        <a href="agenda.html" class="rounded-2xl p-5 text-white flex items-center gap-4 shadow-sm hover:opacity-95 transition border border-white/10" style="background: linear-gradient(135deg, #24134a 0%, #5540a5 100%);">
+          <div class="w-16 h-16 rounded-full bg-[#7044d1] flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-calendar-days text-2xl text-white"></i>
+          </div>
+          <div class="min-w-0">
+            <div class="text-sm font-semibold text-white/95 truncate">Visitas agendadas</div>
+            <div class="text-4xl font-extrabold leading-none my-1">8</div>
+            <div class="text-xs font-semibold text-[#6ff0dc] flex items-center gap-1">
+              <span>⬆</span> na próxima semana
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 2: Clientes atendidos (usando pessoas_funcionarios_ativos.png) -->
+        <div class="rounded-2xl p-5 text-white flex items-center gap-4 shadow-sm border border-white/10" style="background: linear-gradient(135deg, #14213f 0%, #2f6a86 100%);">
+          <div class="w-16 h-16 rounded-full bg-[#2d7890] flex items-center justify-center shrink-0">
+            <img src="pessoas_funcionarios_ativos.png" alt="Clientes atendidos" class="w-9 h-9 object-contain brightness-200">
+          </div>
+          <div class="min-w-0">
+            <div class="text-sm font-semibold text-white/95 truncate">Clientes atendidos</div>
+            <div class="text-4xl font-extrabold leading-none my-1">32</div>
+            <div class="text-xs font-semibold text-[#6ff0dc] flex items-center gap-1">
+              <span>⬆</span> este mês
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Imóveis disponíveis (usando predio_imoveis_cadastrados.png) -->
+        <a href="imoveis.html" class="rounded-2xl p-5 text-white flex items-center gap-4 shadow-sm hover:opacity-95 transition border border-white/10" style="background: linear-gradient(135deg, #40364d 0%, #77736d 100%);">
+          <div class="w-16 h-16 rounded-full bg-[#9b8664] flex items-center justify-center shrink-0">
+            <img src="predio_imoveis_cadastrados.png" alt="Imóveis disponíveis" class="w-9 h-9 object-contain brightness-200">
+          </div>
+          <div class="min-w-0">
+            <div class="text-sm font-semibold text-white/95 truncate">Imóveis disponíveis</div>
+            <div class="text-4xl font-extrabold leading-none my-1">24</div>
+            <div class="text-xs font-semibold text-[#6ff0dc] flex items-center gap-1">
+              <span>⬆</span> ativos
+            </div>
+          </div>
+        </a>
+
+        <!-- Card 4: Propostas pendentes (usando papel_corretores.png) -->
+        <a href="propostas.html" class="rounded-2xl p-5 text-white flex items-center gap-4 shadow-sm hover:opacity-95 transition border border-white/10" style="background: linear-gradient(135deg, #2d1646 0%, #6d3a8c 100%);">
+          <div class="w-16 h-16 rounded-full bg-[#8749ad] flex items-center justify-center shrink-0">
+            <img src="papel_corretores.png" alt="Propostas pendentes" class="w-8 h-8 object-contain brightness-0 invert">
+          </div>
+          <div class="min-w-0">
+            <div class="text-sm font-semibold text-white/95 truncate">Propostas pendentes</div>
+            <div class="text-4xl font-extrabold leading-none my-1">3</div>
+            <div class="text-xs font-semibold text-[#6ff0dc] flex items-center gap-1">
+              <span>⬆</span> aguardando retorno
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- 3. PARTE DE BAIXO (GRÁFICO + AGENDA + IMÓVEIS DISPONÍVEIS) -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+        <!-- Bloco Esquerdo (2 colunas) -->
+        <div class="lg:col-span-2 space-y-6">
+
+          <!-- Gráfico de vendas -->
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+
+              <div class="md:col-span-2 space-y-4">
+                <h2 class="text-xl font-bold text-[#3b1b6c]">Desempenho de vendas</h2>
+
+                <div class="flex h-44">
+                  <div class="flex flex-col justify-between text-xs text-gray-500 font-medium pr-3 pb-6 select-none">
+                    <span>50</span><span>40</span><span>30</span><span>20</span><span>10</span><span>0</span>
+                  </div>
+
+                  <div class="flex-1 flex flex-col justify-between relative border-b border-gray-200 pb-1">
+                    <div class="absolute inset-0 flex flex-col justify-between pointer-events-none pb-6">
+                      <div class="border-b border-gray-100 w-full h-0"></div>
+                      <div class="border-b border-gray-100 w-full h-0"></div>
+                      <div class="border-b border-gray-100 w-full h-0"></div>
+                      <div class="border-b border-gray-100 w-full h-0"></div>
+                      <div class="border-b border-gray-100 w-full h-0"></div>
+                      <div class="border-b border-gray-200 w-full h-0"></div>
+                    </div>
+
+                    <div class="flex items-end justify-between h-full pt-2 z-10 px-1">
+                      <div class="flex flex-col items-center gap-2 h-full justify-end flex-1 max-w-[48px]">
+                        <div class="w-full bg-[#634595] rounded-lg h-[90%] transition-all"></div>
+                        <span class="text-xs text-gray-600 font-medium">jan</span>
+                      </div>
+                      <div class="flex flex-col items-center gap-2 h-full justify-end flex-1 max-w-[48px]">
+                        <div class="w-full bg-[#634595] rounded-lg h-[56%] transition-all"></div>
+                        <span class="text-xs text-gray-600 font-medium">fev</span>
+                      </div>
+                      <div class="flex flex-col items-center gap-2 h-full justify-end flex-1 max-w-[48px]">
+                        <div class="w-full bg-[#634595] rounded-lg h-[96%] transition-all"></div>
+                        <span class="text-xs text-gray-600 font-medium">mar</span>
+                      </div>
+                      <div class="flex flex-col items-center gap-2 h-full justify-end flex-1 max-w-[48px]">
+                        <div class="w-full bg-[#634595] rounded-lg h-[54%] transition-all"></div>
+                        <span class="text-xs text-gray-600 font-medium">abr</span>
+                      </div>
+                      <div class="flex flex-col items-center gap-2 h-full justify-end flex-1 max-w-[48px]">
+                        <div class="w-full bg-[#634595] rounded-lg h-[76%] transition-all"></div>
+                        <span class="text-xs text-gray-600 font-medium">mai</span>
+                      </div>
+                      <div class="flex flex-col items-center gap-2 h-full justify-end flex-1 max-w-[48px]">
+                        <div class="w-full bg-[#634595] rounded-lg h-[60%] transition-all"></div>
+                        <span class="text-xs text-gray-600 font-medium">jun</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Divisor e Métricas -->
+              <div class="md:border-l md:border-gray-100 md:pl-6 space-y-6 flex flex-col justify-center">
+                <div>
+                  <span class="text-sm text-gray-600 font-medium">Total de vendas</span>
+                  <div class="flex items-center gap-2 mt-0.5">
+                    <span class="text-2xl font-bold text-[#3b1b6c]">R$1.980.000</span>
+                    <span class="text-xs font-bold text-emerald-500 flex items-center gap-0.5">
+                      <i class="fa-solid fa-arrow-up text-[10px]"></i>32%
+                    </span>
+                  </div>
+                  <span class="text-[11px] text-gray-400 block mt-0.5">em relação ao mês anterior</span>
+                </div>
+
+                <div>
+                  <span class="text-sm text-gray-600 font-medium">Taxa de conversão</span>
+                  <div class="flex items-center gap-2 mt-0.5">
+                    <span class="text-2xl font-bold text-[#3b1b6c]">18%</span>
+                    <span class="text-xs font-bold text-emerald-500 flex items-center gap-0.5">
+                      <i class="fa-solid fa-arrow-up text-[10px]"></i>6%
+                    </span>
+                  </div>
+                  <span class="text-[11px] text-gray-400 block mt-0.5">em relação ao mês anterior</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Agenda Resumida -->
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="text-lg font-bold text-mobi-purple flex items-center gap-2">
+                <i class="fa-solid fa-calendar-days"></i> Agenda
+              </h2>
+              <a href="agenda.html" class="text-xs font-semibold text-mobi-purple hover:underline">Ver agenda completa</a>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <div class="flex items-center gap-3 p-2.5 border border-gray-100 rounded-xl">
+                <div class="bg-[#1f123a] text-white p-2 rounded-lg text-center font-bold min-w-[40px]">
+                  <div>24</div>
+                  <div class="text-[9px] uppercase font-normal">jul</div>
+                </div>
+                <div>
+                  <div class="font-bold text-gray-800">10:00 Casa na Vila Mariana</div>
+                  <div class="text-gray-400">Rua das Flores, 123</div>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3 p-2.5 border border-gray-100 rounded-xl">
+                <div class="bg-[#1f123a] text-white p-2 rounded-lg text-center font-bold min-w-[40px]">
+                  <div>24</div>
+                  <div class="text-[9px] uppercase font-normal">jul</div>
+                </div>
+                <div>
+                  <div class="font-bold text-gray-800">15:30 Ap. na Liberdade</div>
+                  <div class="text-gray-400">Rua Américo de Campos, 67</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Bloco Direito: Imóveis Disponíveis -->
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 space-y-4">
+          <div class="flex justify-between items-center">
+            <h2 class="text-lg font-bold text-mobi-purple flex items-center gap-2">
+              <i class="fa-solid fa-city"></i> Imóveis disponíveis
+            </h2>
+            <a href="imoveis.html" class="text-xs font-semibold text-mobi-purple hover:underline">Ver todos</a>
+          </div>
+
+          <div class="border border-gray-100 rounded-xl overflow-hidden shadow-sm">
+            <div class="h-32 bg-gray-200 relative">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500" class="w-full h-full object-cover" alt="Imóvel" />
+            </div>
+            <div class="p-3">
+              <h3 class="font-bold text-mobi-purple text-sm">Apartamento no Alto da Boa Vista</h3>
+              <p class="text-[11px] text-gray-400">Alto da Boa Vista, São Paulo - SP</p>
+              <div class="flex gap-3 text-gray-400 text-[11px] my-2">
+                <span><i class="fa-solid fa-bed"></i> 2</span>
+                <span><i class="fa-solid fa-bath"></i> 2</span>
+                <span><i class="fa-solid fa-ruler-combined"></i> 80m²</span>
+              </div>
+              <div class="font-bold text-mobi-purple text-sm">R$ 780.000</div>
+            </div>
+          </div>
+
+          <div class="border border-gray-100 rounded-xl overflow-hidden shadow-sm">
+            <div class="h-32 bg-gray-200 relative">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=500" class="w-full h-full object-cover" alt="Imóvel" />
+            </div>
+            <div class="p-3">
+              <h3 class="font-bold text-mobi-purple text-sm">Casa no bairro Brasil</h3>
+              <p class="text-[11px] text-gray-400">Bairro Brasil, São Paulo - SP</p>
+              <div class="flex gap-3 text-gray-400 text-[11px] my-2">
+                <span><i class="fa-solid fa-bed"></i> 2</span>
+                <span><i class="fa-solid fa-bath"></i> 2</span>
+                <span><i class="fa-solid fa-ruler-combined"></i> 80m²</span>
+              </div>
+              <div class="font-bold text-mobi-purple text-sm">R$ 1.800.000</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>

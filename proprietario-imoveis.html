@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMOBI - Imóveis</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="proprietario.css">
+</head>
+<body>
+<!-- HEADER (igual ao do Corretor) -->
+<header class="topbar">
+  <a href="proprietario.html" class="logo"><img src="width_200.png" alt="IMOBI"></a>
+  <div class="user">
+    <div class="av"><i class="fa-solid fa-user"></i></div>
+    <div><b>Carlos</b><small>Proprietário</small></div>
+  </div>
+</header>
+<div class="body">
+<!-- SIDEBAR (mesma estrutura do Corretor) -->
+<aside>
+  <nav><a href="proprietario.html" class="nav-item"><span class="ico "><img src="casa_pagina_principal-removebg-preview-Photoroom.png" alt="Página inicial"></span><span>Página inicial</span></a><a href="proprietario-imoveis.html" class="nav-item active"><span class="ico "><img src="casa_imoveis.png" alt="Imóveis"></span><span>Imóveis</span></a><a href="proprietario-clientes.html" class="nav-item"><span class="ico "><img src="pessoas_cliente_cadastrado.png" alt="Clientes"></span><span>Clientes</span></a><a href="proprietario-corretores.html" class="nav-item"><i class="fa-solid fa-user-tie"></i><span>Corretores</span></a><a href="proprietario-mensagens.html" class="nav-item"><i class="fa-solid fa-comment-dots"></i><span>Mensagens</span></a><a href="proprietario-financeiro.html" class="nav-item"><span class="ico crop"><img src="dinheiro_pagamento_recebido.png" alt="Financeiro"></span><span>Financeiro</span></a><a href="proprietario-relatorios.html" class="nav-item"><i class="fa-solid fa-chart-column"></i><span>Relatórios</span></a><a href="proprietario-configuracoes.html" class="nav-item"><i class="fa-solid fa-gear"></i><span>Configurações</span></a></nav>
+  <div class="nav-low">
+    <a href="ajuda1.html"><i class="fa-regular fa-circle-question"></i><span>Ajuda</span></a>
+    <a href="#sair"><i class="fa-solid fa-arrow-right-from-bracket"></i><span>Sair</span></a>
+  </div>
+</aside>
+<main>
+<div class="head"><h1>Gerenciamento de Imóveis</h1><a class="btn lg" href="novo-imovel.html"><i class="fa-solid fa-plus"></i> Cadastrar Novo Imóvel</a></div>
+<div class="stack" style="gap:24px">
+<input class="r" type="radio" name="s" id="s0" checked><input class="r" type="radio" name="s" id="s1"><input class="r" type="radio" name="s" id="s2"><input class="r" type="radio" name="s" id="s3">
+<div class="chips"><label for="s0">Todos</label><label for="s1">Disponíveis</label><label for="s2">Alugados</label><label for="s3">Reservados</label></div>
+<div class="imvgrid"><div class="card imv st-disp"><img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400" alt="Apartamento na Vila Mariana"><div class="in"><div class="between" style="align-items:flex-start"><h3>Apartamento na Vila Mariana</h3><span class="b g">Disponível</span></div><p>Imobiliária Trevo<br>Vila Mariana, São Paulo - SP</p>
+<div class="feat"><span><i class="fa-solid fa-bed"></i> 2</span><span><i class="fa-solid fa-bath"></i> 2</span><span><i class="fa-solid fa-ruler-combined"></i> 80 m²</span><span><i class="fa-regular fa-eye"></i> 312</span></div>
+<div class="between"><div class="price">R$ 780.000</div><div class="row" style="font-size:12px;color:#6b7280"><span class="mini">EC</span>Eduardo Costa</div></div></div>
+<details><summary>Ver detalhes</summary><dl><div><dt>Modalidade</dt><dd>Venda</dd></div><div><dt>Condomínio</dt><dd>R$ 420</dd></div><div><dt>IPTU</dt><dd>R$ 1.150</dd></div><div><dt>Comissão</dt><dd>3%</dd></div><div><dt>Corretor responsável</dt><dd>Eduardo Costa</dd></div><div><dt>Ações</dt><dd><a class="link" href="proprietario-mensagens.html">Falar com o corretor</a></dd></div></dl></details></div><div class="card imv st-disp"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400" alt="Apartamento no Alto da Boa Vista"><div class="in"><div class="between" style="align-items:flex-start"><h3>Apartamento no Alto da Boa Vista</h3><span class="b g">Disponível</span></div><p>Imobiliária Trevo<br>Alto da Boa Vista, São Paulo - SP</p>
+<div class="feat"><span><i class="fa-solid fa-bed"></i> 2</span><span><i class="fa-solid fa-bath"></i> 2</span><span><i class="fa-solid fa-ruler-combined"></i> 80 m²</span><span><i class="fa-regular fa-eye"></i> 268</span></div>
+<div class="between"><div class="price">R$ 780.000</div><div class="row" style="font-size:12px;color:#6b7280"><span class="mini">JR</span>Juliana Rocha</div></div></div>
+<details><summary>Ver detalhes</summary><dl><div><dt>Modalidade</dt><dd>Venda</dd></div><div><dt>Condomínio</dt><dd>R$ 390</dd></div><div><dt>IPTU</dt><dd>R$ 980</dd></div><div><dt>Comissão</dt><dd>3%</dd></div><div><dt>Corretor responsável</dt><dd>Juliana Rocha</dd></div><div><dt>Ações</dt><dd><a class="link" href="proprietario-mensagens.html">Falar com o corretor</a></dd></div></dl></details></div><div class="card imv st-alug"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400" alt="Casa na Vila Mariana"><div class="in"><div class="between" style="align-items:flex-start"><h3>Casa na Vila Mariana</h3><span class="b p">Alugado</span></div><p>Imobiliária Trevo<br>Vila Mariana, São Paulo - SP</p>
+<div class="feat"><span><i class="fa-solid fa-bed"></i> 2</span><span><i class="fa-solid fa-bath"></i> 2</span><span><i class="fa-solid fa-ruler-combined"></i> 80 m²</span><span><i class="fa-regular fa-eye"></i> 190</span></div>
+<div class="between"><div class="price">R$ 4.800/mês</div><div class="row" style="font-size:12px;color:#6b7280"><span class="mini">EC</span>Eduardo Costa</div></div></div>
+<details><summary>Ver detalhes</summary><dl><div><dt>Modalidade</dt><dd>Locação</dd></div><div><dt>Condomínio</dt><dd>R$ 310</dd></div><div><dt>IPTU</dt><dd>—</dd></div><div><dt>Comissão</dt><dd>10%</dd></div><div><dt>Corretor responsável</dt><dd>Eduardo Costa</dd></div><div><dt>Ações</dt><dd><a class="link" href="proprietario-mensagens.html">Falar com o corretor</a></dd></div></dl></details></div><div class="card imv st-res"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400" alt="Apartamento no Osvaldo Rezende"><div class="in"><div class="between" style="align-items:flex-start"><h3>Apartamento no Osvaldo Rezende</h3><span class="b a">Reservado</span></div><p>Imobiliária Trevo<br>Osvaldo Rezende, Uberlândia - MG</p>
+<div class="feat"><span><i class="fa-solid fa-bed"></i> 2</span><span><i class="fa-solid fa-bath"></i> 1</span><span><i class="fa-solid fa-ruler-combined"></i> 80 m²</span><span><i class="fa-regular fa-eye"></i> 154</span></div>
+<div class="between"><div class="price">R$ 520.000</div><div class="row" style="font-size:12px;color:#6b7280"><span class="mini">MT</span>Marcelo Tavares</div></div></div>
+<details><summary>Ver detalhes</summary><dl><div><dt>Modalidade</dt><dd>Venda</dd></div><div><dt>Condomínio</dt><dd>R$ 260</dd></div><div><dt>IPTU</dt><dd>R$ 720</dd></div><div><dt>Comissão</dt><dd>3%</dd></div><div><dt>Corretor responsável</dt><dd>Marcelo Tavares</dd></div><div><dt>Ações</dt><dd><a class="link" href="proprietario-mensagens.html">Falar com o corretor</a></dd></div></dl></details></div></div></div>
+</main>
+</div>
+</body>
+</html>
